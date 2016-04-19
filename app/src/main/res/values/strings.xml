@@ -2,6 +2,10 @@
     <string name="app_name">Service Blueprint</string>
     <string name="next">Вперед</string>
     <string name="back">Назад</string>
-    <string name="label">BASEL.AERO SERVICE BLUEPRINT</string>
-    <string name="logo_image">Logo image</string>
+    <string name="Label">Анкета Агента СОПП</string>
+    <string name="plus">+ (правильное выполнение)</string>
+    <string name="zero">0 (с незначительными отклонениями)</string>
+    <string name="minus">- (не выполнено)</string>
+    <string name="timer">Таймер</string>
+    <string name="no_value">Не оценивается</string>
 </resources>

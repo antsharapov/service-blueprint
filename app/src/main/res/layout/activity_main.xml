@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#ffffff"
     tools:context="aero.basel.aaq.serviceblueprint.MainActivity">
 
     <Button
@@ -16,7 +17,8 @@
         android:id="@+id/button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="NextButtonClick" />
 
     <Button
         android:layout_width="wrap_content"
@@ -28,29 +30,45 @@
         android:layout_alignParentStart="true" />
 
     <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/radioGroup">
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New RadioButton"
-            android:id="@+id/radioButton" />
+            android:text="+"
+            android:id="@+id/radioButton"
+            android:layout_gravity="center_horizontal" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New RadioButton"
-            android:id="@+id/radioButton2" />
+            android:text="0"
+            android:id="@+id/radioButton2"
+            android:layout_gravity="center_horizontal" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New RadioButton"
-            android:id="@+id/radioButton3" />
+            android:text="-"
+            android:id="@+id/radioButton3"
+            android:layout_gravity="center_horizontal" />
+
     </RadioGroup>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/imageView"
+        android:src="@mipmap/ic_launcher"
+        android:layout_above="@+id/radioGroup"
+        android:layout_alignRight="@+id/radioGroup"
+        android:layout_alignEnd="@+id/radioGroup"
+        android:layout_alignLeft="@+id/radioGroup"
+        android:layout_alignStart="@+id/radioGroup"
+        android:contentDescription="@string/logo_image" />
 
 </RelativeLayout>

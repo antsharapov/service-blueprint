@@ -2,4 +2,6 @@
     <string name="app_name">Service Blueprint</string>
     <string name="next">Вперед</string>
     <string name="back">Назад</string>
+    <string name="label">BASEL.AERO SERVICE BLUEPRINT</string>
+    <string name="logo_image">Logo image</string>
 </resources>

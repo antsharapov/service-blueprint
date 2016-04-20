@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#ffffff"
+    android:background="#f0f0ff"
     tools:context="aero.basel.aaq.serviceblueprint.MainActivity">
 
     <Button
@@ -35,16 +35,17 @@
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/RadioGroup"
+        android:id="@+id/RadioGroup1"
         android:clickable="false"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
+        android:layout_alignRight="@+id/prev_button"
+        android:layout_alignEnd="@+id/prev_button">
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/plus"
-            android:id="@+id/PlusRadioButton"
+            android:id="@+id/PlusRadioButton1"
             android:layout_gravity="left" />
 
         <Space
@@ -56,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/zero"
-            android:id="@+id/ZeroRadioButton"
+            android:id="@+id/ZeroRadioButton1"
             android:layout_gravity="left" />
 
         <Space
@@ -68,7 +69,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/minus"
-            android:id="@+id/MinusRadioButton"
+            android:id="@+id/MinusRadioButton1"
             android:layout_gravity="left" />
 
     </RadioGroup>
@@ -101,7 +102,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/Label"
-        android:layout_alignBottom="@+id/RadioGroup" />
+        android:layout_alignBottom="@+id/RadioGroup1" />
 
     <Chronometer
         android:layout_width="wrap_content"
@@ -109,5 +110,83 @@
         android:id="@+id/chronometer"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <RadioGroup
+        android:id="@+id/RadioGroup3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/RadioGroup1"
+        android:layout_alignLeft="@+id/next_button"
+        android:layout_alignStart="@+id/next_button"
+        android:layout_centerVertical="true">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/plus"
+            android:id="@+id/PlusRadioButton2"
+            android:layout_gravity="right" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_gravity="center_horizontal" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/zero"
+            android:id="@+id/ZeroRadioButton2" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_gravity="center_horizontal" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/minus"
+            android:id="@+id/MinusRadioButton2" />
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/RadioGroup2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/RadioGroup1"
+        android:layout_alignStart="@+id/chronometer"
+        android:layout_centerInParent="true">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/plus"
+            android:id="@+id/PlusRadioButton3"
+            android:layout_gravity="right" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_gravity="center_horizontal" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/zero"
+            android:id="@+id/ZeroRadioButton3" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_gravity="center_horizontal" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/minus"
+            android:id="@+id/MinusRadioButton3" />
+    </RadioGroup>
 
 </RelativeLayout>

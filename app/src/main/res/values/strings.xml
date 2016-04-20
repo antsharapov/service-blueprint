@@ -3,9 +3,9 @@
     <string name="next">Вперед</string>
     <string name="back">Назад</string>
     <string name="Label">Анкета Агента СОПП</string>
-    <string name="plus">+ (правильное выполнение)</string>
-    <string name="zero">0 (с незначительными отклонениями)</string>
-    <string name="minus">- (не выполнено)</string>
+    <string name="plus">+</string>
+    <string name="zero">0</string>
+    <string name="minus">-</string>
     <string name="timer">Таймер</string>
     <string name="no_value">Не оценивается</string>
     <string name="finished">\nТестирование завершено!</string>

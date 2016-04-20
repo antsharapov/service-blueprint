@@ -11,15 +11,15 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
-    String[] questions, answers;
-    int i=0,j=0,k=0;
+    String[] questions;
+    int i=0,j=0;
+    int x=0,sum=0;
     RadioGroup rg;
     View checked_rb;
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ((RadioGroup)findViewById(R.id.RadioGroup)).check(-1);
         ((Chronometer) findViewById(R.id.chronometer)).setBase(SystemClock.elapsedRealtime());
         ((TextView) findViewById(R.id.question)).setTextSize(20);
         questions = getResources().getStringArray(R.array.questions);
@@ -30,13 +30,22 @@ public class MainActivity extends Activity {
 
     public void NextButtonClick(View theButton)
         {
-            rg = (RadioGroup) findViewById(R.id.RadioGroup);
-            k = rg.getCheckedRadioButtonId();
-            checked_rb = rg.findViewById(k);
-            k = rg.indexOfChild(checked_rb);
+            rg = (RadioGroup) findViewById(R.id.RadioGroup1);
+            x = rg.getCheckedRadioButtonId();
+            checked_rb = rg.findViewById(x);
+            sum += rg.indexOfChild(checked_rb);
             //TODO sum
             rg.check(-1);
-            //answers[j]= String.valueOf(k);
+            rg = (RadioGroup) findViewById(R.id.RadioGroup2);
+            x = rg.getCheckedRadioButtonId();
+            checked_rb = rg.findViewById(x);
+            sum += rg.indexOfChild(checked_rb);
+            rg.check(-1);
+            rg = (RadioGroup) findViewById(R.id.RadioGroup3);
+            x = rg.getCheckedRadioButtonId();
+            checked_rb = rg.findViewById(x);
+            sum += rg.indexOfChild(checked_rb);
+            rg.check(-1);
             if (j<i-1) {
                 j++;
                 ((TextView) findViewById(R.id.question)).setText(questions[j]);
@@ -44,10 +53,10 @@ public class MainActivity extends Activity {
             }
             else
             {
-                ((TextView) findViewById(R.id.question)).setText(R.string.finished);
+                ((TextView) findViewById(R.id.question)).setText(String.valueOf(sum));
                 findViewById(R.id.next_button).setEnabled(false);
                 findViewById(R.id.prev_button).setEnabled(false);
-                ((Chronometer) findViewById(R.id.chronometer)).setActivated(false);
+                findViewById(R.id.chronometer).setActivated(false);
                 ((Chronometer) findViewById(R.id.chronometer)).stop();
                 ((SwitchCompat) findViewById(R.id.TimerSwitch)).setChecked(false);
             }
@@ -72,13 +81,13 @@ public class MainActivity extends Activity {
     {
         if ( findViewById(R.id.chronometer).isActivated())
         {
-            ((Chronometer) findViewById(R.id.chronometer)).setActivated(false);
+            findViewById(R.id.chronometer).setActivated(false);
             ((Chronometer) findViewById(R.id.chronometer)).stop();
         }
         else
         {
             ((Chronometer) findViewById(R.id.chronometer)).setBase(SystemClock.elapsedRealtime());
-            ((Chronometer) findViewById(R.id.chronometer)).setActivated(true);
+           findViewById(R.id.chronometer).setActivated(true);
             ((Chronometer) findViewById(R.id.chronometer)).start();
         }
     }

@@ -8,4 +8,5 @@
     <string name="minus">- (не выполнено)</string>
     <string name="timer">Таймер</string>
     <string name="no_value">Не оценивается</string>
+    <string name="finished">\nТестирование завершено!</string>
 </resources>

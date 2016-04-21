@@ -13,7 +13,10 @@ public class ResultActivity extends Activity {
 
         setContentView(R.layout.activity_result);
         String result = getIntent().getExtras().getString("result");
+        String time = getString(R.string.time) + getIntent().getExtras().getString("time") + getString(R.string.seconds);
         ((TextView) findViewById(R.id.textView)).setText(result);
+        ((TextView) findViewById(R.id.textView2)).setText(time);
+
     }
 
     public void BackButtonClick(View theButton)

@@ -63,8 +63,11 @@ public class MainActivity extends Activity {
                 ((Chronometer) findViewById(R.id.chronometer)).stop();
                 ((SwitchCompat) findViewById(R.id.TimerSwitch)).setChecked(false);
                 Toast.makeText(getApplicationContext(),R.string.finished,Toast.LENGTH_LONG).show();
+                long t = SystemClock.elapsedRealtime() - ((Chronometer) findViewById(R.id.chronometer)).getBase();
+                t = t/1000;
                 Intent intent = new Intent(MainActivity.this, ResultActivity.class);
                 intent.putExtra("result", res);
+                intent.putExtra("time", String.valueOf(t));
                 startActivity(intent);
             }
         }

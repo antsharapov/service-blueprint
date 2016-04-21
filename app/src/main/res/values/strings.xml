@@ -15,4 +15,5 @@
     <string name="wrong_creds">\nНеверные учетные данные\n</string>
     <string name="time">Время выполенения = </string>
     <string name="seconds"> c. </string>
+    <string name="exit">Выход</string>
 </resources>

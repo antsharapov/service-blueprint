@@ -1,6 +1,7 @@
 package aero.basel.aaq.serviceblueprint;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v7.widget.SwitchCompat;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.widget.Chronometer;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -53,12 +55,17 @@ public class MainActivity extends Activity {
             }
             else
             {
-                ((TextView) findViewById(R.id.question)).setText(String.valueOf(sum));
+                String res = getString(R.string.result) + String.valueOf(sum);
+                ((TextView) findViewById(R.id.question)).setText(res);
                 findViewById(R.id.next_button).setEnabled(false);
                 findViewById(R.id.prev_button).setEnabled(false);
                 findViewById(R.id.chronometer).setActivated(false);
                 ((Chronometer) findViewById(R.id.chronometer)).stop();
                 ((SwitchCompat) findViewById(R.id.TimerSwitch)).setChecked(false);
+                Toast.makeText(getApplicationContext(),R.string.finished,Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+                intent.putExtra("result", res);
+                startActivity(intent);
             }
         }
 

@@ -8,5 +8,9 @@
     <string name="minus">-</string>
     <string name="timer">Таймер</string>
     <string name="no_value">Не оценивается</string>
-    <string name="finished">\nТестирование завершено!</string>
+    <string name="finished">\nТестирование завершено!\n</string>
+    <string name="result"><b>\nСуммарный результат = </b></string>
+    <string name="login">Имя пользователя</string>
+    <string name="password">Пароль</string>
+    <string name="wrong_creds">\nНеверные учетные данные\n</string>
 </resources>

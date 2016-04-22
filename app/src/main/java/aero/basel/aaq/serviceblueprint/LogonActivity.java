@@ -17,14 +17,15 @@ public class LogonActivity extends Activity {
         setContentView(R.layout.activity_logon);
     }
 
-    public void BackButtonClick(View theButton)
+    public void NextButtonClick(View theButton)
     {
         EditText username = (EditText)findViewById(R.id.editText1);
         EditText password = (EditText)findViewById(R.id.editText2);
-        if(username.getText().toString().equals("admin")|| username.getText().toString().equals("user") && password.getText().toString().equals("admin")|| username.getText().toString().equals("user"))
+        if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin"))
         {
             Intent intent = new Intent(LogonActivity.this, MainActivity.class);
             startActivity(intent);
+            super.onDestroy();
 
         }
         else{

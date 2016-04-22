@@ -68,6 +68,7 @@ public class MainActivity extends Activity {
                 Intent intent = new Intent(MainActivity.this, ResultActivity.class);
                 intent.putExtra("result", res);
                 intent.putExtra("time", String.valueOf(t));
+                super.onDestroy();
                 startActivity(intent);
             }
         }

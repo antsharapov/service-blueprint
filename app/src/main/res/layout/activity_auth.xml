@@ -14,10 +14,12 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/ServiceListView" />
+        android:id="@+id/ServiceListView"
+        android:entries="@array/services"/>
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/CommissionListView" />
+        android:id="@+id/CommissionListView"
+        android:entries="@array/commission"/>
 </LinearLayout>

@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string-array name="commission">
+        <item>Тайный пассажир</item>
+        <item>Внутренняя коммиссия</item>
+    </string-array>
+</resources>

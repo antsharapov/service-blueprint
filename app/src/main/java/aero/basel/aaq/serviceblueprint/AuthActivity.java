@@ -10,6 +10,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -23,8 +25,14 @@ public class AuthActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
 
+        final TextView tv = (TextView) findViewById(R.id.listViewLabel);
+        tv.setText("Выберите аэропорт:");
+
 //*******************Airport ListView init&click
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                R.layout.listview, getResources().getStringArray(R.array.airports));
         airport_lv = (ListView) findViewById(R.id.AirportListView);
+        airport_lv.setAdapter(adapter);
         airport_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View itemClicked, int position,
@@ -34,12 +42,16 @@ public class AuthActivity extends Activity {
                 airport = ((TextView) itemClicked).getText();
                 airport_lv.setVisibility(View.GONE);
                 service_lv.setVisibility(View.VISIBLE);
+                tv.setText("Выберите службу:");
             }
         });
 //**********************************************
 
 // *******************Service ListView init&click
+        adapter = new ArrayAdapter<>(this,
+                R.layout.listview, getResources().getStringArray(R.array.services));
         service_lv = (ListView) findViewById(R.id.ServiceListView);
+        service_lv.setAdapter(adapter);
         service_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View itemClicked, int position,
@@ -49,13 +61,17 @@ public class AuthActivity extends Activity {
                 service = ((TextView) itemClicked).getText();
                 service_lv.setVisibility(View.GONE);
                 commission_lv.setVisibility(View.VISIBLE);
+                tv.setText("Выберите коммиссию:");
             }
         });
 //**********************************************
 
 
 // *******************Commission ListView init&click
+        adapter = new ArrayAdapter<>(this,
+                R.layout.listview, getResources().getStringArray(R.array.commission));
         commission_lv = (ListView) findViewById(R.id.CommissionListView);
+        commission_lv.setAdapter(adapter);
         commission_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View itemClicked, int position,
@@ -64,6 +80,8 @@ public class AuthActivity extends Activity {
                         Toast.LENGTH_SHORT).show();
                 commission = ((TextView) itemClicked).getText();
                 commission_lv.setVisibility(View.GONE);
+                CharSequence ch = ("Выбор сделан! Аэропорт " + airport + ", " + service + ", " + commission);
+                tv.setText(ch);
             }
         });
 //**********************************************

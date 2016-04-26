@@ -4,18 +4,20 @@
     android:layout_height="match_parent"
     android:showDividers="beginning|middle|end">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/airport_spiner_label" />
-
-    <Spinner
-        android:id="@+id/airports_spinner"
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:prompt="@string/empty_airports_spinner"
-        />
+        android:id="@+id/AirportListView"
+        android:layout_gravity="center_horizontal"
+        android:entries="@array/airports" />
 
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ServiceListView" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/CommissionListView" />
 </LinearLayout>

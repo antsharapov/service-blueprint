@@ -16,5 +16,6 @@
     <string name="time">Время выполенения = </string>
     <string name="seconds"> c. </string>
     <string name="exit">Выход</string>
-    <string name="airport">Аэропорт:</string>
+    <string name="airports">Аэропорт:</string>
+    <string name="empty_airports_spinner">Выберите аэропорт:</string>
 </resources>

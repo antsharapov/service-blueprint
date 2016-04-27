@@ -17,7 +17,7 @@ public class RootActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         activities.add(this);
-        Intent intent = new Intent(RootActivity.this, AuthActivity.class);
+        Intent intent = new Intent(RootActivity.this, DisclaimerActivity.class);
         startActivity(intent);
         finish();
     }

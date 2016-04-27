@@ -21,8 +21,7 @@ public class ResultActivity extends Activity {
 
     public void BackButtonClick(View theButton)
     {
-        moveTaskToBack(true);
-        super.onDestroy();
+        RootActivity.finishAll();
         System.exit(0);
     }
 }

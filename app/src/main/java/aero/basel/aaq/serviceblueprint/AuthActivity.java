@@ -1,20 +1,16 @@
 package aero.basel.aaq.serviceblueprint;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class AuthActivity extends Activity {
 
@@ -80,8 +76,28 @@ public class AuthActivity extends Activity {
                         Toast.LENGTH_SHORT).show();
                 commission = ((TextView) itemClicked).getText();
                 commission_lv.setVisibility(View.GONE);
-                CharSequence ch = ("Выбор сделан! Аэропорт " + airport + ", " + service + ", " + commission);
-                tv.setText(ch);
+                tv.setVisibility(View.GONE);
+                ImageView iv = (ImageView) findViewById(R.id.imageView2);
+                iv.setVisibility(View.GONE);
+                String compare = (String) commission;
+                if (compare.compareToIgnoreCase("Тайный пассажир")==0)
+                {
+                    Intent intent = new Intent(AuthActivity.this, ResultActivity.class);
+                    intent.putExtra("result", commission);
+                    intent.putExtra("time", airport);
+                    onDestroy();
+                    startActivity(intent);
+                }
+                else
+                {
+                    Intent intent = new Intent(AuthActivity.this, LogonActivity.class);
+                    intent.putExtra("result", commission);
+                    intent.putExtra("time", airport);
+                    onDestroy();
+                    startActivity(intent);
+                    tv.setVisibility(View.GONE);
+
+                }
             }
         });
 //**********************************************

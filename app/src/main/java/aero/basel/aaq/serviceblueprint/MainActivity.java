@@ -18,6 +18,7 @@ public class MainActivity extends Activity {
     int x=0,sum=0;
     RadioGroup rg;
     View checked_rb;
+
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
@@ -68,7 +69,7 @@ public class MainActivity extends Activity {
                 Intent intent = new Intent(MainActivity.this, ResultActivity.class);
                 intent.putExtra("result", res);
                 intent.putExtra("time", String.valueOf(t));
-                super.onDestroy();
+                finish();
                 startActivity(intent);
             }
         }

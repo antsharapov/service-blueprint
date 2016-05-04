@@ -94,8 +94,6 @@ public class AuthActivity extends Activity {
                     intent.putExtra("time", airport);
                     onDestroy();
                     startActivity(intent);
-                    tv.setVisibility(View.GONE);
-
                 }
             }
         });

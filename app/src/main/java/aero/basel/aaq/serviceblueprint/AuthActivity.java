@@ -32,8 +32,8 @@ public class AuthActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View itemClicked, int position,
                                     long id) {
-                Toast.makeText(getApplicationContext(), ((TextView) itemClicked).getText(),
-                        Toast.LENGTH_SHORT).show();
+/*                Toast.makeText(getApplicationContext(), ((TextView) itemClicked).getText(),
+                        Toast.LENGTH_SHORT).show();*/
                 airport = ((TextView) itemClicked).getText();
                 airport_lv.setVisibility(View.GONE);
                 service_lv.setVisibility(View.VISIBLE);
@@ -51,8 +51,8 @@ public class AuthActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View itemClicked, int position,
                                     long id) {
-                Toast.makeText(getApplicationContext(), ((TextView) itemClicked).getText(),
-                        Toast.LENGTH_SHORT).show();
+/*                Toast.makeText(getApplicationContext(), ((TextView) itemClicked).getText(),
+                        Toast.LENGTH_SHORT).show();*/
                 service = ((TextView) itemClicked).getText();
                 service_lv.setVisibility(View.GONE);
                 commission_lv.setVisibility(View.VISIBLE);
@@ -71,27 +71,27 @@ public class AuthActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View itemClicked, int position,
                                     long id) {
-                Toast.makeText(getApplicationContext(), ((TextView) itemClicked).getText(),
-                        Toast.LENGTH_SHORT).show();
+/*                Toast.makeText(getApplicationContext(), ((TextView) itemClicked).getText(),
+                        Toast.LENGTH_SHORT).show();*/
                 commission = ((TextView) itemClicked).getText();
                 commission_lv.setVisibility(View.GONE);
                 tv.setVisibility(View.GONE);
-                ImageView iv = (ImageView) findViewById(R.id.imageView2);
-                iv.setVisibility(View.GONE);
+/*                ImageView iv = (ImageView) findViewById(R.id.imageView2);
+                iv.setVisibility(View.GONE);*/
                 String compare = (String) commission;
                 if (compare.compareToIgnoreCase("Тайный пассажир")==0)
                 {
-                    Intent intent = new Intent(AuthActivity.this, ResultActivity.class);
-                    intent.putExtra("result", commission);
-                    intent.putExtra("time", airport);
+                    Intent intent = new Intent(AuthActivity.this, WhoActivity.class);
+                    intent.putExtra("airport", airport);
+                    intent.putExtra("service", service);
                     onDestroy();
                     startActivity(intent);
                 }
                 else
                 {
                     Intent intent = new Intent(AuthActivity.this, LogonActivity.class);
-                    intent.putExtra("result", commission);
-                    intent.putExtra("time", airport);
+                    intent.putExtra("airport", airport);
+                    intent.putExtra("service", service);
                     onDestroy();
                     startActivity(intent);
                 }

@@ -23,7 +23,7 @@
         android:inputType="textEmailAddress"
         android:hint="Введите Ваш e-mail"
         android:ems="10"
-        android:id="@+id/eEmailField"
+        android:id="@+id/EmailField"
         android:layout_gravity="center_horizontal" />
 
     <Space
@@ -35,6 +35,22 @@
         android:layout_height="wrap_content"
         android:id="@+id/FlightNumberField"
         android:hint="Введите номер рейса"
+        android:layout_gravity="center_horizontal" />
+
+    <Space
+        android:layout_width="20px"
+        android:layout_height="60px" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Приложить фото оцениваемого агента"
+        android:id="@+id/CameraCheckBox" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView3"
         android:layout_gravity="center_horizontal" />
 
     <Space

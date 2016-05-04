@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
-        android:hint="Введите Ваш e-mail"
+        android:hint="Введите Ваш e-mail для ответа"
         android:ems="10"
         android:id="@+id/EmailField"
         android:layout_gravity="center_horizontal" />
@@ -36,11 +36,25 @@
         android:ems="10"
         android:id="@+id/FlightNumberField"
         android:hint="Введите номер рейса"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:inputType="number" />
 
     <Space
         android:layout_width="20px"
         android:layout_height="60px" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:hint="Выберите дату Вашего рейса"
+        android:ems="10"
+        android:id="@+id/DateField" />
+
+    <Space
+        android:layout_width="20px"
+        android:layout_height="60px" />
+
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -48,6 +62,10 @@
         android:text="Приложить фото оцениваемого агента"
         android:id="@+id/CameraCheckBox" />
 
+
+    <Space
+        android:layout_width="20px"
+        android:layout_height="60px" />
 
     <Button
         android:layout_width="wrap_content"

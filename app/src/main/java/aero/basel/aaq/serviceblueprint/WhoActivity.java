@@ -8,6 +8,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -19,13 +20,14 @@ public class WhoActivity extends Activity {
     CheckBox camera_checkbox;
     EditText name_field, email_field, flight_field;
     Bitmap agent_photo;
-    private final int CAMERA_RESULT = 0;
+    ImageView photo;
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_who);
 
+        photo = (ImageView) findViewById(R.id.imageView3);
 
         airport = getIntent().getStringExtra("airport");
         service = getIntent().getStringExtra("service");
@@ -42,17 +44,27 @@ public class WhoActivity extends Activity {
                 email = email_field.getText().toString();
                 flight = flight_field.getText().toString();
                 if (!name.isEmpty() && !email.isEmpty() && !flight.isEmpty()) {
-                    camera_checkbox = (CheckBox) findViewById(R.id.CameraCheckBox);
-                    if (camera_checkbox.isChecked()) {
-                        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                        startActivityForResult(cameraIntent, CAMERA_RESULT);
 
-                    } else {
-
-                    }
                 }
                 else{
                     Toast.makeText(getApplicationContext(),"Заполните все поля!", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        camera_checkbox = (CheckBox) findViewById(R.id.CameraCheckBox);
+        camera_checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                {
+                    Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(cameraIntent, 0);
+                    photo.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    photo.setVisibility(View.GONE);
                 }
             }
         });
@@ -61,10 +73,12 @@ public class WhoActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == CAMERA_RESULT) {
+        if (resultCode == Activity.RESULT_OK && requestCode == 0) {
             agent_photo = (Bitmap) data.getExtras().get("data");
-            ImageView photo = (ImageView) findViewById(R.id.imageView3);
             photo.setImageBitmap(agent_photo);
+        }
+        else{
+            camera_checkbox.setChecked(false);
         }
     }
 }

@@ -48,7 +48,16 @@ public class WhoActivity extends Activity {
                 flight = flight_field.getText().toString();
                 date = date_field.getText().toString();
                 if (!name.isEmpty() && !date.isEmpty() && !flight.isEmpty()) {
-                    sendEmail();
+                    //sendEmail();
+                    Intent intent = new Intent (WhoActivity.this,SimpleTestActivity.class);
+                    intent.putExtra("airport",airport);
+                    intent.putExtra("service",service);
+                    intent.putExtra("name", name);
+                    intent.putExtra("flight", flight);
+                    intent.putExtra("date",date);
+                    intent.putExtra("photo",f.toURI().getPath());
+                    startActivity(intent);
+                    finish();
                 }
                 else{
                     Toast.makeText(getApplicationContext(),"Заполните все поля!", Toast.LENGTH_LONG).show();
@@ -68,7 +77,7 @@ public class WhoActivity extends Activity {
                     try {
                         f = createImageFile();
                     } catch (IOException ex) {
-                        Toast.makeText(getApplicationContext(),"file fail", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"file creation failed", Toast.LENGTH_LONG).show();
                     }
 
                     cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
@@ -99,10 +108,9 @@ public class WhoActivity extends Activity {
 
         String[] TO = {"sharapovav@aaq.basel.aero"};
         String[] CC = {"antsharapov@ya.ru"};
-        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
 
         emailIntent.setData(Uri.parse("mailto:"));
-        emailIntent.setType("application/image");
 
         if (camera_checkbox.isChecked()) {
             emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(f));

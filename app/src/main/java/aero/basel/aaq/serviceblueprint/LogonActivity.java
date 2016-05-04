@@ -61,7 +61,9 @@ public class LogonActivity extends Activity {
 
             if (username.getText().toString().equals(db_username) && password.getText().toString().equals(db_pass)) {
                 success = true;
-                Intent intent = new Intent(LogonActivity.this, MainActivity.class);
+                Intent intent = new Intent(LogonActivity.this, AppearanceActivity.class);
+                //TODO put extra data for intent, get extra data from prev activity
+                // intent.putExtra("");
                 startActivity(intent);
                 super.onDestroy();
                 break;

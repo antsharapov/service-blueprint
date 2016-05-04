@@ -12,4 +12,20 @@
         <item>question9</item>
         <item>question10</item>
     </string-array>
+    <string-array name="headline_appearance">
+        <item>Форменная одежда</item>
+        <item>Пропуск/бейдж</item>
+        <item>Внешний вид</item>
+    </string-array>
+    <string-array name="questions_appearance">
+        <item>Наличие</item>
+        <item>Чистота</item>
+        <item>Выглаженность</item>
+        <item>Наличие</item>
+        <item>Расположение</item>
+        <item>Читаемость</item>
+        <item>Прическа</item>
+        <item>Маникюр/макияж</item>
+        <item>Украшения</item>
+    </string-array>
 </resources>

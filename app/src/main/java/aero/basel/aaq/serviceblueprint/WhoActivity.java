@@ -19,12 +19,13 @@ import java.util.Date;
 
 
 public class WhoActivity extends Activity {
-    String airport, service, name, email, flight;
+    String airport, service, name, flight, date;
     Button next_button;
     CheckBox camera_checkbox;
-    EditText name_field, email_field, flight_field;
+    EditText name_field, flight_field, date_field;
     String mCurrentPhotoPath;
     File f = null;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
@@ -36,17 +37,17 @@ public class WhoActivity extends Activity {
         service = getIntent().getStringExtra("service");
 
         name_field = (EditText) findViewById(R.id.NameField);
-        email_field = (EditText) findViewById(R.id.EmailField);
         flight_field = (EditText) findViewById(R.id.FlightNumberField);
+        date_field = (EditText) findViewById(R.id.DateField);
 
         next_button = (Button) findViewById(R.id.next_button);
         next_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 name = name_field.getText().toString();
-                email = email_field.getText().toString();
                 flight = flight_field.getText().toString();
-                if (!name.isEmpty() && !email.isEmpty() && !flight.isEmpty()) {
+                date = date_field.getText().toString();
+                if (!name.isEmpty() && !date.isEmpty() && !flight.isEmpty()) {
                     sendEmail();
                 }
                 else{
@@ -103,7 +104,9 @@ public class WhoActivity extends Activity {
         emailIntent.setData(Uri.parse("mailto:"));
         emailIntent.setType("application/image");
 
-        if (camera_checkbox.isChecked()) emailIntent.putExtra(Intent.EXTRA_STREAM,Uri.fromFile(f));
+        if (camera_checkbox.isChecked()) {
+            emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(f));
+        }
 
         emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
         emailIntent.putExtra(Intent.EXTRA_CC, CC);
@@ -112,7 +115,7 @@ public class WhoActivity extends Activity {
 
         try {
             startActivity(Intent.createChooser(emailIntent, "Send mail..."));
-            RootActivity.finishAll();
+            finish();
         } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(this,
                     "There is no email client installed.", Toast.LENGTH_SHORT).show();

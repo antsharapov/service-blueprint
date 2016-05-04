@@ -20,19 +20,6 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:hint="Введите Ваш e-mail для ответа"
-        android:ems="10"
-        android:id="@+id/EmailField"
-        android:layout_gravity="center_horizontal" />
-
-    <Space
-        android:layout_width="20px"
-        android:layout_height="60px" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:ems="10"
         android:id="@+id/FlightNumberField"
         android:hint="Введите номер рейса"

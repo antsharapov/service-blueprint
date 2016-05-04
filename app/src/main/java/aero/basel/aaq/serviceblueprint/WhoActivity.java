@@ -2,16 +2,20 @@ package aero.basel.aaq.serviceblueprint;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class WhoActivity extends Activity {
@@ -19,15 +23,14 @@ public class WhoActivity extends Activity {
     Button next_button;
     CheckBox camera_checkbox;
     EditText name_field, email_field, flight_field;
-    Bitmap agent_photo;
-    ImageView photo;
+    String mCurrentPhotoPath;
+    File f = null;
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_who);
 
-        photo = (ImageView) findViewById(R.id.imageView3);
 
         airport = getIntent().getStringExtra("airport");
         service = getIntent().getStringExtra("service");
@@ -44,7 +47,7 @@ public class WhoActivity extends Activity {
                 email = email_field.getText().toString();
                 flight = flight_field.getText().toString();
                 if (!name.isEmpty() && !email.isEmpty() && !flight.isEmpty()) {
-
+                    sendEmail();
                 }
                 else{
                     Toast.makeText(getApplicationContext(),"Заполните все поля!", Toast.LENGTH_LONG).show();
@@ -58,27 +61,80 @@ public class WhoActivity extends Activity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked)
                 {
+
                     Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    startActivityForResult(cameraIntent, 0);
-                    photo.setVisibility(View.VISIBLE);
+
+                    try {
+                        f = createImageFile();
+                    } catch (IOException ex) {
+                        Toast.makeText(getApplicationContext(),"file fail", Toast.LENGTH_LONG).show();
+                    }
+
+                    cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
+                    startActivityForResult(cameraIntent, 1);
                 }
-                else
-                {
-                    photo.setVisibility(View.GONE);
+                else {
+                    camera_checkbox.setText("Приложить фото оцениваемого агента");
+                    f.delete();
+                }
                 }
             }
-        });
+        );
     }
 
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == Activity.RESULT_OK && requestCode == 0) {
-            agent_photo = (Bitmap) data.getExtras().get("data");
-            photo.setImageBitmap(agent_photo);
+        if (resultCode == RESULT_OK) {
+            camera_checkbox.setText("Фото добавлено");
         }
         else{
             camera_checkbox.setChecked(false);
+            camera_checkbox.setText("Приложить фото оцениваемого агента");
         }
     }
+
+    protected void sendEmail() {
+
+        String[] TO = {"sharapovav@aaq.basel.aero"};
+        String[] CC = {"antsharapov@ya.ru"};
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.setType("application/image");
+
+        if (camera_checkbox.isChecked()) emailIntent.putExtra(Intent.EXTRA_STREAM,Uri.fromFile(f));
+
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+        emailIntent.putExtra(Intent.EXTRA_CC, CC);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "SERVICE_BLUEPRINT");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Тест: " + airport + " " + service);
+
+        try {
+            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+            RootActivity.finishAll();
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(this,
+                    "There is no email client installed.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+
+        // Save a file: path for use with ACTION_VIEW intents
+        mCurrentPhotoPath = "file:" + image.getAbsolutePath();
+        return image;
+    }
+
+
 }

@@ -33,6 +33,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:ems="10"
         android:id="@+id/FlightNumberField"
         android:hint="Введите номер рейса"
         android:layout_gravity="center_horizontal" />
@@ -47,15 +48,6 @@
         android:text="Приложить фото оцениваемого агента"
         android:id="@+id/CameraCheckBox" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView3"
-        android:layout_gravity="center_horizontal" />
-
-    <Space
-        android:layout_width="20px"
-        android:layout_height="60px" />
 
     <Button
         android:layout_width="wrap_content"

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string-array name="services">
-        <item>Служба авиационной безопасности</item>
-        <item>Служба организации перевозок</item>
-    </string-array>
-</resources>

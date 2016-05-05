@@ -19,10 +19,9 @@ import java.util.Date;
 
 
 public class WhoActivity extends Activity {
-    private String airport, service, name, flight, date, agent_name;
     private Button next_button;
     private CheckBox camera_checkbox;
-    private EditText name_field, flight_field, date_field, agent_name_field;
+    private EditText name_field, flight_field, date_field;
     private File f = null;
 
     @Override
@@ -31,33 +30,21 @@ public class WhoActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_who);
 
-
-        airport = getIntent().getStringExtra("airport");
-        service = getIntent().getStringExtra("service");
-
         name_field = (EditText) findViewById(R.id.NameField);
         flight_field = (EditText) findViewById(R.id.FlightNumberField);
         date_field = (EditText) findViewById(R.id.DateField);
-        agent_name_field = (EditText) findViewById(R.id.AgentNameField);
 
         next_button = (Button) findViewById(R.id.next_button);
         next_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                name = name_field.getText().toString();
-                flight = flight_field.getText().toString();
-                date = date_field.getText().toString();
-                agent_name = agent_name_field.getText().toString();
-                if (!name.isEmpty() && !date.isEmpty() && !flight.isEmpty() && !agent_name.isEmpty()) {
-                    //sendEmail();
+                GlobalVariables.person_name = name_field.getText().toString();
+                GlobalVariables.person_flight = flight_field.getText().toString();
+                GlobalVariables.person_flight_date = date_field.getText().toString();
+
+                if (!GlobalVariables.person_name.isEmpty() && !GlobalVariables.person_flight.isEmpty() && !GlobalVariables.person_flight_date.isEmpty()) {
+
                     Intent intent = new Intent (WhoActivity.this,AgentSelectionActivity.class);
-                    intent.putExtra("airport",airport);
-                    intent.putExtra("service",service);
-                    intent.putExtra("name", name);
-                    intent.putExtra("flight", flight);
-                    intent.putExtra("date",date);
-                    intent.putExtra("agent_name", agent_name);
-                    if (camera_checkbox.isChecked()) intent.putExtra("photo",f.toURI().getPath());
                     startActivity(intent);
                     finish();
                 }
@@ -121,7 +108,7 @@ public class WhoActivity extends Activity {
         emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
         emailIntent.putExtra(Intent.EXTRA_CC, CC);
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "SERVICE_BLUEPRINT");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, "Тест: " + airport + " " + service);
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Тест: " + GlobalVariables.airport + " " + GlobalVariables.service);
 
         try {
             startActivity(Intent.createChooser(emailIntent, "Send mail..."));

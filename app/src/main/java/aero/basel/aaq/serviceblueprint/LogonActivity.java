@@ -25,8 +25,8 @@ public class LogonActivity extends Activity {
     }
 
     public void NextButtonClick(View theButton) throws SQLException {
-        EditText username = (EditText) findViewById(R.id.editText1);
-        EditText password = (EditText) findViewById(R.id.editText2);
+        EditText username = (EditText) findViewById(R.id.LoginEditText);
+        EditText password = (EditText) findViewById(R.id.PassEditText);
         String db_username;
         String db_pass;
         boolean success = false;
@@ -61,9 +61,8 @@ public class LogonActivity extends Activity {
 
             if (username.getText().toString().equals(db_username) && password.getText().toString().equals(db_pass)) {
                 success = true;
-                Intent intent = new Intent(LogonActivity.this, AppearanceActivity.class);
-                //TODO put extra data for intent, get extra data from prev activity
-                // intent.putExtra("");
+                Intent intent = new Intent(LogonActivity.this, AgentSelectionActivity.class);
+                GlobalVariables.commission_name = DatabaseHelper.REALNAME_USERS_COLUMN;
                 startActivity(intent);
                 super.onDestroy();
                 break;

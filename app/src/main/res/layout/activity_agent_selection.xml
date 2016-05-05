@@ -15,18 +15,25 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Фамилия проверяемого агента:"
-        android:id="@+id/textView7"
+        android:id="@+id/agent_name_label"
         android:layout_gravity="center_horizontal" />
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner2" />
+        android:id="@+id/agent_name_spinner" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Приложить фото оцениваемого агента"
+        android:id="@+id/CameraCheckBox"
+        android:layout_gravity="center_horizontal" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/next"
-        android:id="@+id/button3"
+        android:id="@+id/next_button"
         android:layout_gravity="center_horizontal" />
 </LinearLayout>

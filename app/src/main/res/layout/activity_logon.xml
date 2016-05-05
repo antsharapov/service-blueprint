@@ -4,32 +4,32 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/LoginEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="text"
         android:hint="@string/login"
-        android:layout_above="@+id/editText2"
+        android:layout_above="@+id/PassEditText"
         android:layout_centerHorizontal="true"
         />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/PassEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:hint="@string/password"
         android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/editText1"
-        android:layout_alignStart="@+id/editText1"
-        android:layout_alignRight="@+id/editText1"
-        android:layout_alignEnd="@+id/editText1" />
+        android:layout_alignLeft="@+id/LoginEditText"
+        android:layout_alignStart="@+id/LoginEditText"
+        android:layout_alignRight="@+id/LoginEditText"
+        android:layout_alignEnd="@+id/LoginEditText" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/next"
-        android:id="@+id/button2"
+        android:id="@+id/NextButton"
         android:layout_gravity="center_horizontal"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
@@ -38,12 +38,12 @@
     <ImageView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/imageView"
+        android:id="@+id/LogoView"
         android:src="@mipmap/ic_launcher"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:contentDescription="@string/app_name"
-        android:layout_above="@+id/editText1" />
+        android:layout_above="@+id/LoginEditText" />
 
 </RelativeLayout>

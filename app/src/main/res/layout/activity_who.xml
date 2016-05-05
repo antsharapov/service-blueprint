@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="Введите Ф.И.О."
+        android:hint="Ваше Ф.И.О."
         android:ems="10"
         android:id="@+id/NameField"
         android:layout_gravity="center_horizontal" />
@@ -42,6 +42,18 @@
         android:layout_width="20px"
         android:layout_height="60px" />
 
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/AgentNameField"
+        android:hint="Ф.И.О. агента/инспектора" />
+
+    <Space
+        android:layout_width="20px"
+        android:layout_height="60px" />
 
     <CheckBox
         android:layout_width="wrap_content"

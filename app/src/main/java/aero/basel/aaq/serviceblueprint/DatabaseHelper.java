@@ -1,6 +1,5 @@
 package aero.basel.aaq.serviceblueprint;
 
-import android.app.Application;
 import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,27 +7,29 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.widget.Toast;
-
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import static android.database.sqlite.SQLiteDatabase.deleteDatabase;
-
 public class DatabaseHelper extends SQLiteOpenHelper{
 
     // путь к базе данных вашего приложения
-    public static String DB_PATH= "/data/data/aero.basel.aaq.serviceblueprint/databases/";
-    public static String DB_NAME = "basel.db";
-    private static final int DB_VERSION = 1;
+    private static String DB_PATH= "/data/data/aero.basel.aaq.serviceblueprint/databases/";
+    private static String DB_NAME = "basel.db";
+    private static final int DB_VERSION = 2;
     private SQLiteDatabase myDataBase;
     private final Context mContext;
-    public static final String DATABASE_TABLE = "users";
-    public static final String USERNAME_COLUMN = "username";
-    public static final String PASSWORD_COLUMN = "password";
-    public static final String REALNAME_COLUMN = "realname";
-    public static final String DESCRIPTION_COLUMN = "description";
+    public static final String DATABASE_USERS_TABLE = "users";
+    public static final String USERNAME_USERS_COLUMN = "username";
+    public static final String PASSWORD_USERS_COLUMN = "password";
+    public static final String REALNAME_USERS_COLUMN = "realname";
+    public static final String DESCRIPTION_USERS_COLUMN = "description";
+
+    public static final String DATABASE_AGENTS_TABLE = "agents";
+    public static final String NAME_AGENTS_COLUMN = "name";
+    public static final String SHIFT_AGENTS_COLUMN = "shift";
+    public static final String AIRPORT_AGENTS_COLUMN = "airport";
 
     /**
      * Конструктор

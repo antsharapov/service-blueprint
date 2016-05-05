@@ -2,7 +2,6 @@ package aero.basel.aaq.serviceblueprint;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.view.View;
 import android.widget.TextView;
 

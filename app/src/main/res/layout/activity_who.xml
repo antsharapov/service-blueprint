@@ -14,8 +14,8 @@
         android:layout_gravity="center_horizontal" />
 
     <Space
-        android:layout_width="20px"
-        android:layout_height="60px" />
+        android:layout_width="20dp"
+        android:layout_height="10dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -27,8 +27,8 @@
         android:inputType="number" />
 
     <Space
-        android:layout_width="20px"
-        android:layout_height="60px" />
+        android:layout_width="20dp"
+        android:layout_height="10dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -39,8 +39,8 @@
         android:id="@+id/DateField" />
 
     <Space
-        android:layout_width="20px"
-        android:layout_height="60px" />
+        android:layout_width="20dp"
+        android:layout_height="10dp" />
 
 
     <EditText
@@ -52,8 +52,8 @@
         android:hint="Ф.И.О. агента/инспектора" />
 
     <Space
-        android:layout_width="20px"
-        android:layout_height="60px" />
+        android:layout_width="20dp"
+        android:layout_height="10dp" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -63,8 +63,8 @@
 
 
     <Space
-        android:layout_width="20px"
-        android:layout_height="60px" />
+        android:layout_width="20dp"
+        android:layout_height="10dp" />
 
     <Button
         android:layout_width="wrap_content"

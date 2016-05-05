@@ -49,15 +49,15 @@ public class LogonActivity extends Activity {
         sdb.close();
         sdb = myDbHelper.getReadableDatabase();
 
-        Cursor cursor = sdb.query(DatabaseHelper.DATABASE_TABLE, new String[]{DatabaseHelper.USERNAME_COLUMN,
-                        DatabaseHelper.PASSWORD_COLUMN, DatabaseHelper.REALNAME_COLUMN},
+        Cursor cursor = sdb.query(DatabaseHelper.DATABASE_USERS_TABLE, new String[]{DatabaseHelper.USERNAME_USERS_COLUMN,
+                        DatabaseHelper.PASSWORD_USERS_COLUMN, DatabaseHelper.REALNAME_USERS_COLUMN},
                 null, null,
                 null, null, null);
 
         while (cursor.moveToNext()) {
 
-            db_username = cursor.getString(cursor.getColumnIndex(DatabaseHelper.USERNAME_COLUMN));
-            db_pass = cursor.getString(cursor.getColumnIndex(DatabaseHelper.PASSWORD_COLUMN));
+            db_username = cursor.getString(cursor.getColumnIndex(DatabaseHelper.USERNAME_USERS_COLUMN));
+            db_pass = cursor.getString(cursor.getColumnIndex(DatabaseHelper.PASSWORD_USERS_COLUMN));
 
             if (username.getText().toString().equals(db_username) && password.getText().toString().equals(db_pass)) {
                 success = true;

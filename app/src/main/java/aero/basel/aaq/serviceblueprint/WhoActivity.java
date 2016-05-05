@@ -19,12 +19,11 @@ import java.util.Date;
 
 
 public class WhoActivity extends Activity {
-    String airport, service, name, flight, date, agent_name;
-    Button next_button;
-    CheckBox camera_checkbox;
-    EditText name_field, flight_field, date_field, agent_name_field;
-    String mCurrentPhotoPath;
-    File f = null;
+    private String airport, service, name, flight, date, agent_name;
+    private Button next_button;
+    private CheckBox camera_checkbox;
+    private EditText name_field, flight_field, date_field, agent_name_field;
+    private File f = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,14 +50,14 @@ public class WhoActivity extends Activity {
                 agent_name = agent_name_field.getText().toString();
                 if (!name.isEmpty() && !date.isEmpty() && !flight.isEmpty() && !agent_name.isEmpty()) {
                     //sendEmail();
-                    Intent intent = new Intent (WhoActivity.this,SimpleTestActivity.class);
+                    Intent intent = new Intent (WhoActivity.this,AppearanceActivity.class);
                     intent.putExtra("airport",airport);
                     intent.putExtra("service",service);
                     intent.putExtra("name", name);
                     intent.putExtra("flight", flight);
                     intent.putExtra("date",date);
                     intent.putExtra("agent_name", agent_name);
-                    intent.putExtra("photo",f.toURI().getPath());
+                    if (camera_checkbox.isChecked()) intent.putExtra("photo",f.toURI().getPath());
                     startActivity(intent);
                     finish();
                 }
@@ -135,19 +134,15 @@ public class WhoActivity extends Activity {
 
     private File createImageFile() throws IOException {
         // Create an image file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imageFileName = "JPEG_" + timeStamp + "_";
+        String timeStamp = new SimpleDateFormat("ddMMyyyy_HHmmss").format(new Date());
+        String imageFileName = "Basel_" + timeStamp + "_";
         File storageDir = Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(
+        return File.createTempFile(
                 imageFileName,  /* prefix */
                 ".jpg",         /* suffix */
                 storageDir      /* directory */
         );
-
-        // Save a file: path for use with ACTION_VIEW intents
-        mCurrentPhotoPath = "file:" + image.getAbsolutePath();
-        return image;
     }
 
 }

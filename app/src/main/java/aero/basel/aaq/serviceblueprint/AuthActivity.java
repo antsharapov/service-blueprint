@@ -6,15 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class AuthActivity extends Activity {
 
-    ListView airport_lv, service_lv, commission_lv;
-    CharSequence airport, service, commission;
+    private ListView airport_lv, service_lv, commission_lv;
+    private CharSequence airport, service, commission;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

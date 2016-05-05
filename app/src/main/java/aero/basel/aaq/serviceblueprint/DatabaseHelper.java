@@ -17,7 +17,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     // путь к базе данных вашего приложения
     private static String DB_PATH= "/data/data/aero.basel.aaq.serviceblueprint/databases/";
     private static String DB_NAME = "basel.db";
-    private static final int DB_VERSION = 2;
+    private static final int DB_VERSION = 1;
     private SQLiteDatabase myDataBase;
     private final Context mContext;
     public static final String DATABASE_USERS_TABLE = "users";

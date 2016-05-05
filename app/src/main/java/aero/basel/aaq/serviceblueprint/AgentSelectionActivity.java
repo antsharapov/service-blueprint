@@ -40,9 +40,8 @@ public class AgentSelectionActivity extends AppCompatActivity {
         SQLiteDatabase sdb = myDbHelper.getReadableDatabase();
         sdb.close();
         sdb = myDbHelper.getReadableDatabase();
-        final String airport = getIntent().getStringExtra("airport");
         String query = "Select name from agents where airport = ?";
-        Cursor cursor = sdb.rawQuery(query, new String[] { airport });
+        Cursor cursor = sdb.rawQuery(query, new String[] { GlobalVariables.airport });
         ArrayList<String> spinnerContent = new ArrayList<String>();
         if(cursor.moveToFirst()){
             do{
@@ -63,8 +62,8 @@ public class AgentSelectionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String agent_name = agent_spinner.getSelectedItem().toString();
                 Intent intent = new Intent (AgentSelectionActivity.this,SimpleTestActivity.class);
-                intent.putExtra("airport",airport);
-                /*intent.putExtra("service",service);
+               /* intent.putExtra("airport",airport);
+                intent.putExtra("service",service);
                 intent.putExtra("name", name);
                 intent.putExtra("flight", flight);
                 intent.putExtra("date",date);

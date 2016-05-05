@@ -44,6 +44,7 @@ public class WhoActivity extends Activity {
 
                 if (!GlobalVariables.person_name.isEmpty() && !GlobalVariables.person_flight.isEmpty() && !GlobalVariables.person_flight_date.isEmpty()) {
 
+                    if (camera_checkbox.isChecked()) GlobalVariables.agent_photo = f.getAbsolutePath().toString();
                     Intent intent = new Intent (WhoActivity.this,AgentSelectionActivity.class);
                     startActivity(intent);
                     finish();

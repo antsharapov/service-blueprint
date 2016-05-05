@@ -8,6 +8,6 @@ public class GlobalVariables {
     public static String person_flight;
     public static String person_flight_date;
     public static String agent_name;
-    public static String agent_photo;
+    public static String agent_photo = "";
 
 }

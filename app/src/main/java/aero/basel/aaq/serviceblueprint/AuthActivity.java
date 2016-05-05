@@ -32,7 +32,7 @@ public class AuthActivity extends Activity {
                                     long id) {
 /*                Toast.makeText(getApplicationContext(), ((TextView) itemClicked).getText(),
                         Toast.LENGTH_SHORT).show();*/
-                airport = ((TextView) itemClicked).getText();
+                airport  = ((TextView) itemClicked).getText();
                 airport_lv.setVisibility(View.GONE);
                 service_lv.setVisibility(View.VISIBLE);
                 tv.setText("Выберите службу:");

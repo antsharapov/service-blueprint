@@ -30,6 +30,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public static final String NAME_AGENTS_COLUMN = "name";
     public static final String SHIFT_AGENTS_COLUMN = "shift";
     public static final String AIRPORT_AGENTS_COLUMN = "airport";
+    public static final String SERVICE_AGENTS_COLUMN = "service";
+
 
     /**
      * Конструктор

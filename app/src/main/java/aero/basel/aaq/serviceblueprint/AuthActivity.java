@@ -12,7 +12,6 @@ import android.widget.TextView;
 public class AuthActivity extends Activity {
 
     private ListView airport_lv, service_lv, commission_lv;
-    private CharSequence airport, service, commission;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,16 +29,14 @@ public class AuthActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View itemClicked, int position,
                                     long id) {
-/*                Toast.makeText(getApplicationContext(), ((TextView) itemClicked).getText(),
-                        Toast.LENGTH_SHORT).show();*/
-                airport  = ((TextView) itemClicked).getText();
+
+                GlobalVariables.airport  = ((TextView) itemClicked).getText().toString();
                 airport_lv.setVisibility(View.GONE);
                 service_lv.setVisibility(View.VISIBLE);
                 tv.setText("Выберите службу:");
             }
         });
 //**********************************************
-
 // *******************Service ListView init&click
         adapter = new ArrayAdapter<>(this,
                 R.layout.listview, getResources().getStringArray(R.array.services));
@@ -49,17 +46,13 @@ public class AuthActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View itemClicked, int position,
                                     long id) {
-/*                Toast.makeText(getApplicationContext(), ((TextView) itemClicked).getText(),
-                        Toast.LENGTH_SHORT).show();*/
-                service = ((TextView) itemClicked).getText();
+                GlobalVariables.service = ((TextView) itemClicked).getText().toString();
                 service_lv.setVisibility(View.GONE);
                 commission_lv.setVisibility(View.VISIBLE);
                 tv.setText("Выберите коммиссию:");
             }
         });
 //**********************************************
-
-
 // *******************Commission ListView init&click
         adapter = new ArrayAdapter<>(this,
                 R.layout.listview, getResources().getStringArray(R.array.commission));
@@ -69,27 +62,19 @@ public class AuthActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View itemClicked, int position,
                                     long id) {
-/*                Toast.makeText(getApplicationContext(), ((TextView) itemClicked).getText(),
-                        Toast.LENGTH_SHORT).show();*/
-                commission = ((TextView) itemClicked).getText();
+
+                GlobalVariables.commission = ((TextView) itemClicked).getText().toString();
                 commission_lv.setVisibility(View.GONE);
                 tv.setVisibility(View.GONE);
-/*                ImageView iv = (ImageView) findViewById(R.id.imageView2);
-                iv.setVisibility(View.GONE);*/
-                String compare = (String) commission;
-                if (compare.compareToIgnoreCase("Тайный пассажир")==0)
+                if (GlobalVariables.commission.compareTo("Тайный пассажир")==0)
                 {
                     Intent intent = new Intent(AuthActivity.this, WhoActivity.class);
-                    intent.putExtra("airport", airport);
-                    intent.putExtra("service", service);
                     onDestroy();
                     startActivity(intent);
                 }
                 else
                 {
                     Intent intent = new Intent(AuthActivity.this, LogonActivity.class);
-                    intent.putExtra("airport", airport);
-                    intent.putExtra("service", service);
                     onDestroy();
                     startActivity(intent);
                 }

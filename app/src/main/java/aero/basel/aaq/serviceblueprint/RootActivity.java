@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 public class RootActivity extends Activity
 {
-    private static final String TAG=RootActivity.class.getName();
     private static ArrayList<Activity> activities= new ArrayList<>();
 
 

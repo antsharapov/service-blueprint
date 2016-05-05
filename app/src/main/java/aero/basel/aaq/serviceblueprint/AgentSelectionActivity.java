@@ -62,14 +62,14 @@ public class AgentSelectionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String agent_name = agent_spinner.getSelectedItem().toString();
-                Intent intent = new Intent (WhoActivity.this,AgentSelectionActivity.class);
+                Intent intent = new Intent (AgentSelectionActivity.this,SimpleTestActivity.class);
                 intent.putExtra("airport",airport);
-                intent.putExtra("service",service);
+                /*intent.putExtra("service",service);
                 intent.putExtra("name", name);
                 intent.putExtra("flight", flight);
                 intent.putExtra("date",date);
                 intent.putExtra("agent_name", agent_name);
-                intent.putExtra("photo",photo);
+                intent.putExtra("photo",photo);*/
                 startActivity(intent);
                 finish();
             }

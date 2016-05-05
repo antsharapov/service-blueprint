@@ -50,7 +50,7 @@ public class WhoActivity extends Activity {
                 agent_name = agent_name_field.getText().toString();
                 if (!name.isEmpty() && !date.isEmpty() && !flight.isEmpty() && !agent_name.isEmpty()) {
                     //sendEmail();
-                    Intent intent = new Intent (WhoActivity.this,AppearanceActivity.class);
+                    Intent intent = new Intent (WhoActivity.this,AgentSelectionActivity.class);
                     intent.putExtra("airport",airport);
                     intent.putExtra("service",service);
                     intent.putExtra("name", name);

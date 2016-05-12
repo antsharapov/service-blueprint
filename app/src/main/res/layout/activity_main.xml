@@ -77,7 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/Label"
+        android:text="@string/label"
         android:id="@+id/Label"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />

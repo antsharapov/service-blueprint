@@ -19,7 +19,8 @@
         android:text="@string/agreed"
         android:layout_gravity="center_horizontal"
         android:id="@+id/disclaimer_agreed_checkbox"
-        android:layout_weight="15" />
+        android:layout_weight="15"
+        android:layout_marginBottom="25dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -27,5 +28,6 @@
         android:text="@string/next"
         android:id="@+id/disclaimer_next_button"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="15" />
+        android:layout_weight="15"
+        android:layout_marginBottom="25dp" />
 </LinearLayout>

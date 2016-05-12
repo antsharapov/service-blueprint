@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 
 public class WhoActivity extends Activity {
+
     private EditText name_field, flight_field, date_field;
 
     @Override
@@ -35,7 +36,7 @@ public class WhoActivity extends Activity {
                     startActivity(intent);
                     finish();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Заполните все поля!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.empty_fields, Toast.LENGTH_LONG).show();
                 }
             }
         });

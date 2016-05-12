@@ -1,5 +1,6 @@
 package aero.basel.aaq.serviceblueprint;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -7,7 +8,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -23,7 +23,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class AgentSelectionActivity extends AppCompatActivity {
+public class AgentSelectionActivity extends Activity {
 
     Spinner agent_spinner;
     DatabaseHelper myDbHelper;
@@ -37,6 +37,7 @@ public class AgentSelectionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_agent_selection);
 
         agent_spinner = (Spinner) findViewById(R.id.agent_name_spinner);
+
         myDbHelper = new DatabaseHelper(this);
         try {
             myDbHelper.createDataBase();
@@ -48,6 +49,7 @@ public class AgentSelectionActivity extends AppCompatActivity {
         } catch (SQLException sqle) {
             sqle.printStackTrace();
         }
+
         SQLiteDatabase sdb = myDbHelper.getReadableDatabase();
         sdb.close();
         sdb = myDbHelper.getReadableDatabase();
@@ -61,6 +63,7 @@ public class AgentSelectionActivity extends AppCompatActivity {
             }while(cursor.moveToNext());
         }
         cursor.close();
+
         String[] allSpinner = new String[spinnerContent.size()];
         allSpinner = spinnerContent.toArray(allSpinner);
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(AgentSelectionActivity.this,android.R.layout.simple_spinner_item, allSpinner);
@@ -72,7 +75,7 @@ public class AgentSelectionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 GlobalVariables.agent_name = agent_spinner.getSelectedItem().toString();
-                Intent intent = new Intent (AgentSelectionActivity.this,SimpleTestActivity.class);
+                Intent intent = new Intent (AgentSelectionActivity.this,AppearanceActivity.class);
                 if (camera_checkbox.isChecked()) GlobalVariables.agent_photo = f.getAbsolutePath();
                 startActivity(intent);
                 finish();

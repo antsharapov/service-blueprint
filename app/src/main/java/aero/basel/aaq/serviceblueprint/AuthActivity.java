@@ -18,7 +18,7 @@ public class AuthActivity extends Activity {
         setContentView(R.layout.activity_auth);
 
         final TextView tv = (TextView) findViewById(R.id.listViewLabel);
-        tv.setText("Выберите аэропорт:");
+        tv.setText(R.string.airport_choose);
 
 //*******************Airport ListView init&click
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
@@ -33,7 +33,7 @@ public class AuthActivity extends Activity {
                 GlobalVariables.airport  = ((TextView) itemClicked).getText().toString();
                 airport_lv.setVisibility(View.GONE);
                 service_lv.setVisibility(View.VISIBLE);
-                tv.setText("Выберите службу:");
+                tv.setText(R.string.service_choose);
             }
         });
 //**********************************************
@@ -49,7 +49,7 @@ public class AuthActivity extends Activity {
                 GlobalVariables.service = ((TextView) itemClicked).getText().toString();
                 service_lv.setVisibility(View.GONE);
                 commission_lv.setVisibility(View.VISIBLE);
-                tv.setText("Выберите коммиссию:");
+                tv.setText(R.string.commission_choose);
             }
         });
 //**********************************************
@@ -66,16 +66,16 @@ public class AuthActivity extends Activity {
                 GlobalVariables.commission = ((TextView) itemClicked).getText().toString();
                 commission_lv.setVisibility(View.GONE);
                 tv.setVisibility(View.GONE);
-                if (GlobalVariables.commission.compareTo("Тайный пассажир")==0)
+                if (GlobalVariables.commission.compareToIgnoreCase(getString(R.string.secret_passenger))==0)
                 {
                     Intent intent = new Intent(AuthActivity.this, WhoActivity.class);
-                    onDestroy();
+                    finish();
                     startActivity(intent);
                 }
                 else
                 {
                     Intent intent = new Intent(AuthActivity.this, LogonActivity.class);
-                    onDestroy();
+                    finish();
                     startActivity(intent);
                 }
             }

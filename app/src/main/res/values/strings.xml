@@ -3,7 +3,7 @@
     <string name="basel">Basel Aero</string>
     <string name="next">Вперед</string>
     <string name="back">Назад</string>
-    <string name="Label">Анкета Service Blueprint</string>
+    <string name="label">Анкета Service Blueprint</string>
     <string name="plus">+</string>
     <string name="zero">0</string>
     <string name="minus">-</string>
@@ -17,7 +17,12 @@
     <string name="time">Время выполенения = </string>
     <string name="seconds"> c. </string>
     <string name="exit">Выход</string>
-    <string name="agreed">Согласен</string>
+    <string name="airport_choose">Выберите аэропорт:</string>
+    <string name="service_choose">Выберите службу:</string>
+    <string name="commission_choose">Выберите комиссию:</string>
+    <string name="empty_fields">"Заполните все поля!"</string>
+    <string name="agreed">Я согласен(-на)</string>
+    <string name="secret_passenger">Тайный пассажир</string>
     <string name="disclaimer">Условия использования:\n
                                 1. Пользователь приложения понимает, что отрицательный отзыв\n
                                     повлечет за собой служебное расследование,

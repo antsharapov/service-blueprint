@@ -11,7 +11,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class TripleTestActivity extends Activity {
 
     String[] questions;
     int i=0,j=0;
@@ -22,7 +22,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_triple_test);
         ((Chronometer) findViewById(R.id.chronometer)).setBase(SystemClock.elapsedRealtime());
         ((TextView) findViewById(R.id.question)).setTextSize(20);
         questions = getResources().getStringArray(R.array.questions);
@@ -66,7 +66,7 @@ public class MainActivity extends Activity {
                 Toast.makeText(getApplicationContext(),R.string.finished,Toast.LENGTH_LONG).show();
                 long t = SystemClock.elapsedRealtime() - ((Chronometer) findViewById(R.id.chronometer)).getBase();
                 t = t/1000;
-                Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+                Intent intent = new Intent(TripleTestActivity.this, ResultActivity.class);
                 intent.putExtra("result", res);
                 intent.putExtra("time", String.valueOf(t));
                 finish();

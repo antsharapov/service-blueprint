@@ -7,6 +7,7 @@
     <string name="plus">+</string>
     <string name="zero">0</string>
     <string name="minus">-</string>
+    <string name="cross">x</string>
     <string name="timer">Таймер</string>
     <string name="no_value">Не оценивается</string>
     <string name="finished">\nТестирование завершено!\n</string>

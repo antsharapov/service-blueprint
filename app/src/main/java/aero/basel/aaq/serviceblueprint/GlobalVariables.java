@@ -15,6 +15,8 @@ public class GlobalVariables extends Activity {
     public static String commission_name;
     public static String agent_name;
     public static String agent_photo = "";
+    public static String[] results_array = new String[100];
+    public static int results_array_index = 0;
 
     protected void sendEmail() {
 

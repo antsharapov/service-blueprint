@@ -1,18 +1,4 @@
 <resources>
-    <string-array name="airports">
-        <item>Краснодар</item>
-        <item>Сочи</item>
-        <item>Анапа</item>
-        <item>Геленджик</item>
-    </string-array>
-    <string-array name="commission">
-        <item>Тайный пассажир</item>
-        <item>Внутренняя коммиссия</item>
-    </string-array>
-    <string-array name="services">
-        <item>Служба авиационной безопасности</item>
-        <item>Служба организации перевозок</item>
-    </string-array>
     <string name="app_name">Service Blueprint</string>
     <string name="basel">Basel Aero</string>
     <string name="next">Вперед</string>

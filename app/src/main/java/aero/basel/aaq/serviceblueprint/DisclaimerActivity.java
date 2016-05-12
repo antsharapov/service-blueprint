@@ -21,7 +21,6 @@ public class DisclaimerActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_disclaimer);
-
         next_button = (Button) findViewById(R.id.disclaimer_next_button);
         next_button.setEnabled(false);
 

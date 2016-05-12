@@ -25,9 +25,7 @@ import java.util.Date;
 
 public class AgentSelectionActivity extends Activity {
 
-    Spinner agent_spinner;
-    DatabaseHelper myDbHelper;
-    Button next_btn;
+    private Spinner agent_spinner;
     private CheckBox camera_checkbox;
     private File f = null;
 
@@ -38,11 +36,11 @@ public class AgentSelectionActivity extends Activity {
 
         agent_spinner = (Spinner) findViewById(R.id.agent_name_spinner);
 
-        myDbHelper = new DatabaseHelper(this);
+        DatabaseHelper myDbHelper = new DatabaseHelper(this);
         try {
             myDbHelper.createDataBase();
         } catch (IOException ioe) {
-            throw new Error("Unable to create database");
+            throw new Error("Unable to create database!");
         }
         try {
             myDbHelper.openDataBase();
@@ -70,7 +68,7 @@ public class AgentSelectionActivity extends Activity {
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         agent_spinner.setAdapter(spinnerAdapter);
 
-        next_btn = (Button) findViewById(R.id.next_button);
+        Button next_btn = (Button) findViewById(R.id.next_button);
         next_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,14 +93,14 @@ public class AgentSelectionActivity extends Activity {
                                                                try {
                                                                    f = createImageFile();
                                                                } catch (IOException ex) {
-                                                                   Toast.makeText(getApplicationContext(),"file creation failed", Toast.LENGTH_LONG).show();
+                                                                   Toast.makeText(getApplicationContext(),"File creation failed!", Toast.LENGTH_LONG).show();
                                                                }
 
                                                                cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
                                                                startActivityForResult(cameraIntent, 1);
                                                            }
                                                            else {
-                                                               camera_checkbox.setText("Приложить фото оцениваемого агента");
+                                                               camera_checkbox.setText(R.string.add_photo);
                                                                f.delete();
                                                            }
                                                        }
@@ -114,11 +112,11 @@ public class AgentSelectionActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
-            camera_checkbox.setText("Фото добавлено");
+            camera_checkbox.setText(R.string.photo_success);
         }
         else{
             camera_checkbox.setChecked(false);
-            camera_checkbox.setText("Приложить фото оцениваемого агента");
+            camera_checkbox.setText(R.string.add_photo);
         }
     }
 

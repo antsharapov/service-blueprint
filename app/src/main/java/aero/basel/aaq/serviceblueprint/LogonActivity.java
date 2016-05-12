@@ -14,8 +14,6 @@ import java.io.IOException;
 
 public class LogonActivity extends Activity {
 
-    private DatabaseHelper myDbHelper;
-
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +29,7 @@ public class LogonActivity extends Activity {
         String db_pass;
         boolean success = false;
 
-        myDbHelper = new DatabaseHelper(this);
+        DatabaseHelper myDbHelper = new DatabaseHelper(this);
         try {
             myDbHelper.createDataBase();
         } catch (IOException ioe) {
@@ -64,7 +62,7 @@ public class LogonActivity extends Activity {
                 Intent intent = new Intent(LogonActivity.this, AgentSelectionActivity.class);
                 GlobalVariables.commission_name = DatabaseHelper.REALNAME_USERS_COLUMN;
                 startActivity(intent);
-                super.onDestroy();
+                finish();
                 break;
             }
         }

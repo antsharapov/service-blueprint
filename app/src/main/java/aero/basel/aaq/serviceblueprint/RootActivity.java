@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class RootActivity extends Activity
 {
-    private static ArrayList<Activity> activities= new ArrayList<>();
+    private static final ArrayList<Activity> activities= new ArrayList<>();
 
 
     @Override

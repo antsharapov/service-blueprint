@@ -23,6 +23,8 @@
     <string name="empty_fields">"Заполните все поля!"</string>
     <string name="agreed">Я согласен(-на)</string>
     <string name="secret_passenger">Тайный пассажир</string>
+    <string name="add_photo">Приложить фото оцениваемого агента</string>
+    <string name="photo_success">Фото добавлено</string>
     <string name="disclaimer">Условия использования:\n
                                 1. Пользователь приложения понимает, что отрицательный отзыв\n
                                     повлечет за собой служебное расследование,

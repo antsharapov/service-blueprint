@@ -14,9 +14,9 @@ public class SimpleTestActivity extends Activity {
         setContentView(R.layout.activity_simple_test);
 
         if (!GlobalVariables.agent_photo.isEmpty()) {
-            Uri photo = Uri.parse(GlobalVariables.agent_photo);
+           /* Uri photo = Uri.parse(GlobalVariables.agent_photo);
             ImageView iv = (ImageView) findViewById(R.id.imageView3);
-            iv.setImageURI(photo);
+            iv.setImageURI(photo);*/
         }
         else{
             Toast.makeText(this,"Test",Toast.LENGTH_LONG).show();

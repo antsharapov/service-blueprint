@@ -12,9 +12,9 @@ import android.widget.TextView;
 
 public class DisclaimerActivity extends Activity
 {
-    TextView disclaimer;
-    Button next_button;
-    CheckBox agreed_cb;
+    private TextView disclaimer;
+    private Button next_button;
+    private CheckBox agreed_cb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

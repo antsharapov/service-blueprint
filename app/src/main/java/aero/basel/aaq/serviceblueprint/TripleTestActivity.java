@@ -3,104 +3,74 @@ package aero.basel.aaq.serviceblueprint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.SystemClock;
-import android.support.v7.widget.SwitchCompat;
 import android.view.View;
-import android.widget.Chronometer;
-import android.widget.RadioGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class TripleTestActivity extends Activity {
 
-    String[] questions;
     int i=0,j=0;
-    int x=0,sum=0;
-    RadioGroup rg;
-    View checked_rb;
+    TextView tv, counter_tv;
+    String[] questions;
 
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_triple_test);
-        ((Chronometer) findViewById(R.id.chronometer)).setBase(SystemClock.elapsedRealtime());
-        ((TextView) findViewById(R.id.question)).setTextSize(20);
-        questions = getResources().getStringArray(R.array.questions);
-        i = questions.length;
-        ((TextView) findViewById(R.id.question)).setText(questions[j]);
-        findViewById(R.id.prev_button).setEnabled(false);
-    }
 
-    public void NextButtonClick(View theButton)
-        {
-            rg = (RadioGroup) findViewById(R.id.RadioGroup1);
-            x = rg.getCheckedRadioButtonId();
-            checked_rb = rg.findViewById(x);
-            sum += rg.indexOfChild(checked_rb);
-            //TODO sum
-            rg.check(-1);
-            rg = (RadioGroup) findViewById(R.id.RadioGroup2);
-            x = rg.getCheckedRadioButtonId();
-            checked_rb = rg.findViewById(x);
-            sum += rg.indexOfChild(checked_rb);
-            rg.check(-1);
-            rg = (RadioGroup) findViewById(R.id.RadioGroup3);
-            x = rg.getCheckedRadioButtonId();
-            checked_rb = rg.findViewById(x);
-            sum += rg.indexOfChild(checked_rb);
-            rg.check(-1);
-            if (j<i-1) {
-                j++;
-                ((TextView) findViewById(R.id.question)).setText(questions[j]);
-                findViewById(R.id.prev_button).setEnabled(true);
-            }
-            else
-            {
-                String res = getString(R.string.result) + String.valueOf(sum);
-                ((TextView) findViewById(R.id.question)).setText(res);
-                findViewById(R.id.next_button).setEnabled(false);
-                findViewById(R.id.prev_button).setEnabled(false);
-                findViewById(R.id.chronometer).setActivated(false);
-                ((Chronometer) findViewById(R.id.chronometer)).stop();
-                ((SwitchCompat) findViewById(R.id.TimerSwitch)).setChecked(false);
-                Toast.makeText(getApplicationContext(),R.string.finished,Toast.LENGTH_LONG).show();
-                long t = SystemClock.elapsedRealtime() - ((Chronometer) findViewById(R.id.chronometer)).getBase();
-                t = t/1000;
-                Intent intent = new Intent(TripleTestActivity.this, ResultActivity.class);
-                intent.putExtra("result", res);
-                intent.putExtra("time", String.valueOf(t));
-                finish();
-                startActivity(intent);
-            }
+        if (GlobalVariables.service.compareToIgnoreCase(getString(R.string.sop))==0) {
+            questions = getResources().getStringArray(R.array.sop_questions);
         }
-
-    public void PrevButtonClick(View theButton)
-    {
-        if (j>1) {
-            j--;
-            ((TextView) findViewById(R.id.question)).setText(questions[j]);
-            findViewById(R.id.next_button).setEnabled(true);
+        else if (GlobalVariables.service.compareToIgnoreCase(getString(R.string.sab))==0) {
+            questions = getResources().getStringArray(R.array.sab_questions);
         }
         else
         {
-            j--;
-            ((TextView) findViewById(R.id.question)).setText(questions[j]);
-            findViewById(R.id.prev_button).setEnabled(false);
+            Toast.makeText(TripleTestActivity.this,"Impossible error!",Toast.LENGTH_LONG).show();
+            finish();
         }
-    }
 
-    public void TimerSwitchClick(View theButton)
-    {
-        if ( findViewById(R.id.chronometer).isActivated())
-        {
-            findViewById(R.id.chronometer).setActivated(false);
-            ((Chronometer) findViewById(R.id.chronometer)).stop();
-        }
-        else
-        {
-            ((Chronometer) findViewById(R.id.chronometer)).setBase(SystemClock.elapsedRealtime());
-           findViewById(R.id.chronometer).setActivated(true);
-            ((Chronometer) findViewById(R.id.chronometer)).start();
-        }
+        j=questions.length;
+
+        tv = (TextView) findViewById(R.id.triple_test_tv);
+        tv.setText(questions[i]);
+
+        counter_tv = (TextView) findViewById(R.id.triple_counter_textview);
+        counter_tv.setText("Повторение №: " + String.valueOf(GlobalVariables.triple_test_counter));
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                R.layout.listview, getResources().getStringArray(R.array.marks));
+        ListView marks_lv = (ListView) findViewById(R.id.triple_marks_listView);
+        marks_lv.setAdapter(adapter);
+        marks_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View itemClicked, int position,
+                                    long id) {
+                if (i<j-1){
+                    GlobalVariables.results_array[GlobalVariables.results_array_index]  = ((TextView) itemClicked).getText().toString();
+                    GlobalVariables.results_array_index++;
+                    i++;
+                    tv.setText(questions[i]);
+                }
+                else {
+                    if (GlobalVariables.triple_test_counter<3) {
+                        Intent intent = new Intent(TripleTestActivity.this, TripleTestActivity.class);
+                        GlobalVariables.triple_test_counter++;
+                        finish();
+                        startActivity(intent);
+                    }
+                    else {
+                        Intent intent = new Intent(TripleTestActivity.this, ResultActivity.class);
+                        finish();
+                        startActivity(intent);
+                    }
+                }
+            }
+        });
+
     }
 }

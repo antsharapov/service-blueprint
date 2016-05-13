@@ -1,191 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".TripleTestActivity">
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/next"
-        android:id="@+id/next_button"
-        android:onClick="NextButtonClick"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:padding="16dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/back"
-        android:id="@+id/prev_button"
-        android:onClick="PrevButtonClick"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:padding="16dp" />
-
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/RadioGroup1"
-        android:clickable="false"
-        android:layout_centerVertical="true"
-        android:layout_alignRight="@+id/prev_button"
-        android:layout_alignEnd="@+id/prev_button">
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/plus"
-            android:id="@+id/PlusRadioButton1"
-            android:layout_gravity="left" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_gravity="center_horizontal" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/zero"
-            android:id="@+id/ZeroRadioButton1"
-            android:layout_gravity="left" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_gravity="center_horizontal" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/minus"
-            android:id="@+id/MinusRadioButton1"
-            android:layout_gravity="left" />
-
-    </RadioGroup>
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="aero.basel.aaq.serviceblueprint.SimpleTestActivity"
+    android:orientation="vertical"
+    android:gravity="center_vertical|center_horizontal"
+    android:showDividers="beginning|middle|end">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/label"
-        android:id="@+id/Label"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <android.support.v7.widget.SwitchCompat
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/timer"
-        android:id="@+id/TimerSwitch"
-        android:textSize="12sp"
-        android:onClick="TimerSwitchClick"
-        android:layout_alignTop="@+id/next_button"
-        android:layout_centerHorizontal="true" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/triple_counter_textview" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/question"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/Label"
-        android:layout_alignBottom="@+id/RadioGroup1" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/triple_test_tv"
+        android:paddingBottom="60dp" />
 
-    <Chronometer
-        android:layout_width="wrap_content"
+    <ListView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/chronometer"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:id="@+id/triple_marks_listView"
+        android:layout_gravity="center"
+        android:dividerHeight="15dp"
+        android:textAlignment="center" />
 
-    <RadioGroup
-        android:id="@+id/RadioGroup3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/RadioGroup1"
-        android:layout_alignLeft="@+id/next_button"
-        android:layout_alignStart="@+id/next_button"
-        android:layout_centerVertical="true">
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/plus"
-            android:id="@+id/PlusRadioButton2"
-            android:layout_gravity="right" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_gravity="center_horizontal" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/zero"
-            android:id="@+id/ZeroRadioButton2" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_gravity="center_horizontal" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/minus"
-            android:id="@+id/MinusRadioButton2" />
-
-    </RadioGroup>
-
-    <RadioGroup
-        android:id="@+id/RadioGroup2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/RadioGroup1"
-        android:layout_alignStart="@+id/chronometer"
-        android:layout_centerInParent="true">
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/plus"
-            android:id="@+id/PlusRadioButton3"
-            android:layout_gravity="right" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_gravity="center_horizontal" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/zero"
-            android:id="@+id/ZeroRadioButton3" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_gravity="center_horizontal" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/minus"
-            android:id="@+id/MinusRadioButton3" />
-    </RadioGroup>
-
-</RelativeLayout>
+</LinearLayout>

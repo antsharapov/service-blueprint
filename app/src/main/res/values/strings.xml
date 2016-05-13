@@ -3,6 +3,8 @@
     <string name="basel">Basel Aero</string>
     <string name="next">Вперед</string>
     <string name="back">Назад</string>
+    <string name="sop">Служба организации перевозок</string>
+    <string name="sab">Служба авиационной безопасности</string>
     <string name="label">Анкета Service Blueprint</string>
     <string name="plus">+</string>
     <string name="zero">0</string>

@@ -14,6 +14,7 @@ public class RootActivity extends Activity
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
+        for (int i = 0; i < 100; i++) GlobalVariables.results_array[i] = "x";
         super.onCreate(savedInstanceState);
         activities.add(this);
         Intent intent = new Intent(RootActivity.this, DisclaimerActivity.class);

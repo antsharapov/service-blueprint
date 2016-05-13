@@ -1,6 +1,7 @@
 package aero.basel.aaq.serviceblueprint;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,10 +14,9 @@ public class AppearanceActivity extends Activity {
 
     private Button next_btn, back_btn;
     private RadioGroup rg1, rg2, rg3;
-    private View checked_rb1, checked_rb2, checked_rb3;
     private TextView app_question_header, app_question1_title, app_question2_title, app_question3_title;
     private String[] header_array, questions_array;
-    private int i=0,j=0, x=0,sum=0,header_array_length;
+    private int i=0,j=0,header_array_length;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,8 @@ public class AppearanceActivity extends Activity {
         next_btn = (Button) findViewById(R.id.app_button_next);
         back_btn = (Button) findViewById(R.id.app_button_back);
         back_btn.setEnabled(false);
+
+        GlobalVariables.results_array_index=0;
 
         header_array = getResources().getStringArray(R.array.headline_appearance);
         header_array_length = header_array.length;
@@ -44,19 +46,14 @@ public class AppearanceActivity extends Activity {
 
     public void NextButtonClick (View theButton)
     {
-        back_btn.setEnabled(true);
-
+        View checked_rb1, checked_rb2, checked_rb3;
 
         rg1 = (RadioGroup) findViewById(R.id.radioGroup1);
         checked_rb1 = rg1.findViewById(rg1.getCheckedRadioButtonId());
 
-
         switch (rg1.indexOfChild(checked_rb1)){
             case -1:
                 Toast.makeText(AppearanceActivity.this,"Пропущены поля!", Toast.LENGTH_LONG).show();
-                i++;
-                j+=3;
-                back_btn.performClick();
                 return;
             case 0:
                 GlobalVariables.results_array[GlobalVariables.results_array_index] = "+";
@@ -74,7 +71,10 @@ public class AppearanceActivity extends Activity {
                 GlobalVariables.results_array[GlobalVariables.results_array_index] = "x";
                 GlobalVariables.results_array_index++;
                 break;
-
+            default:
+                GlobalVariables.results_array[GlobalVariables.results_array_index] = "err";
+                GlobalVariables.results_array_index++;
+                break;
         }
 
 
@@ -84,10 +84,7 @@ public class AppearanceActivity extends Activity {
         switch (rg2.indexOfChild(checked_rb2)){
             case -1:
                 Toast.makeText(AppearanceActivity.this,"Пропущены поля!", Toast.LENGTH_LONG).show();
-                i++;
-                j+=3;
                 GlobalVariables.results_array_index-=1;
-                back_btn.performClick();
                 return;
             case 0:
                 GlobalVariables.results_array[GlobalVariables.results_array_index] = "+";
@@ -105,7 +102,10 @@ public class AppearanceActivity extends Activity {
                 GlobalVariables.results_array[GlobalVariables.results_array_index] = "x";
                 GlobalVariables.results_array_index++;
                 break;
-
+            default:
+                GlobalVariables.results_array[GlobalVariables.results_array_index] = "err";
+                GlobalVariables.results_array_index++;
+                break;
         }
 
         rg3 = (RadioGroup) findViewById(R.id.radioGroup3);
@@ -114,10 +114,7 @@ public class AppearanceActivity extends Activity {
         switch (rg3.indexOfChild(checked_rb3)){
             case -1:
                 Toast.makeText(AppearanceActivity.this,"Пропущены поля!", Toast.LENGTH_LONG).show();
-                i++;
-                j+=3;
                 GlobalVariables.results_array_index-=2;
-                back_btn.performClick();
                 return;
             case 0:
                 GlobalVariables.results_array[GlobalVariables.results_array_index] = "+";
@@ -135,12 +132,16 @@ public class AppearanceActivity extends Activity {
                 GlobalVariables.results_array[GlobalVariables.results_array_index] = "x";
                 GlobalVariables.results_array_index++;
                 break;
-
+            default:
+                GlobalVariables.results_array[GlobalVariables.results_array_index] = "err";
+                GlobalVariables.results_array_index++;
+                break;
         }
 
         rg1.check(-1);
         rg2.check(-1);
         rg3.check(-1);
+        back_btn.setEnabled(true);
 
         if (i<header_array_length-1) {
             i++;
@@ -154,12 +155,28 @@ public class AppearanceActivity extends Activity {
         }
         else{
             next_btn.setEnabled(false);
-            Toast.makeText(AppearanceActivity.this,String.valueOf(GlobalVariables.results_array_index),Toast.LENGTH_LONG).show();
+            back_btn.setEnabled(false);
+            if (GlobalVariables.commission.compareToIgnoreCase(getString(R.string.secret_passenger))==0)
+            {
+                Intent intent = new Intent(AppearanceActivity.this, SimpleTestActivity.class);
+                finish();
+                startActivity(intent);
+            }
+            else
+            {
+                Intent intent = new Intent(AppearanceActivity.this, TripleTestActivity.class);
+                finish();
+                startActivity(intent);
+            }
         }
     }
 
     public void BackButtonClick (View theButton)
     {
+        rg1.check(-1);
+        rg2.check(-1);
+        rg3.check(-1);
+        GlobalVariables.results_array_index-=3;
         if (i>1) {
             i--;
             app_question_header.setText(header_array[i]);

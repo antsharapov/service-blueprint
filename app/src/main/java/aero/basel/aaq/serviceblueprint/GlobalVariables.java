@@ -1,5 +1,6 @@
 package aero.basel.aaq.serviceblueprint;
 
+
 public class GlobalVariables {
     public static String airport;
     public static String service;

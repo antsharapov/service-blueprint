@@ -36,7 +36,8 @@ public class ResultActivity extends Activity {
 
         emailIntent.setData(Uri.parse("mailto:"));
 
-        if (!GlobalVariables.agent_photo.isEmpty()) emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(GlobalVariables.agent_photo));
+
+        if (!GlobalVariables.agent_photo.isEmpty()) emailIntent.putExtra(Intent.EXTRA_STREAM,Uri.parse("file://" + GlobalVariables.agent_photo));
 
 
         emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);

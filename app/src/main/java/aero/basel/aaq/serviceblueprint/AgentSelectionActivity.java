@@ -125,7 +125,7 @@ public class AgentSelectionActivity extends Activity {
     private File createImageFile() throws IOException {
         // Create an image file name
         String timeStamp = new SimpleDateFormat("ddMMyyyy_HHmmss").format(new Date());
-        String imageFileName = "Basel_" + timeStamp + "_";
+        String imageFileName = "JPG_" + timeStamp;
         File storageDir = Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_PICTURES);
         return File.createTempFile(

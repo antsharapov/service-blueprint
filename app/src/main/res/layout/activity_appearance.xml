@@ -74,7 +74,7 @@
         android:id="@+id/radioGroup3"
         android:padding="10dp"
         android:layout_below="@+id/app_question2_title"
-        android:layout_alignStart="@+id/app_question3_title">
+        android:layout_alignStart="@+id/app_button_next">
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -136,9 +136,9 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
         android:id="@+id/app_question1_title"
+        android:padding="5dp"
         android:layout_above="@+id/radioGroup1"
-        android:layout_toEndOf="@+id/app_button_back"
-        android:padding="5dp" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -156,9 +156,10 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
         android:id="@+id/app_question3_title"
+        android:padding="5dp"
         android:layout_above="@+id/radioGroup3"
-        android:layout_toStartOf="@+id/app_button_next"
-        android:padding="5dp" />
+        android:layout_alignParentEnd="true"
+        android:maxWidth="150dp" />
 
     <Space
         android:layout_width="20dp"

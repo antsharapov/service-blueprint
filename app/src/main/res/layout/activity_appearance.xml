@@ -6,9 +6,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/radioGroup1"
-        android:layout_alignTop="@+id/radioGroup2"
-        android:layout_alignRight="@+id/app_button_back"
-        android:layout_alignEnd="@+id/app_button_back">
+        android:padding="10dp"
+        android:layout_below="@+id/app_question2_title"
+        android:layout_alignEnd="@+id/app_question1_title">
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -40,7 +40,8 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/radioGroup2">
+        android:id="@+id/radioGroup2"
+        android:padding="10dp">
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -71,9 +72,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/radioGroup3"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/app_button_next"
-        android:layout_alignStart="@+id/app_button_next">
+        android:padding="10dp"
+        android:layout_below="@+id/app_question2_title"
+        android:layout_alignStart="@+id/app_question3_title">
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -136,8 +137,8 @@
         android:text="Small Text"
         android:id="@+id/app_question1_title"
         android:layout_above="@+id/radioGroup1"
-        android:layout_alignRight="@+id/radioGroup1"
-        android:layout_alignEnd="@+id/radioGroup1" />
+        android:layout_toEndOf="@+id/app_button_back"
+        android:padding="5dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -146,7 +147,8 @@
         android:text="Small Text"
         android:id="@+id/app_question2_title"
         android:layout_above="@+id/radioGroup2"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:padding="5dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -155,8 +157,8 @@
         android:text="Small Text"
         android:id="@+id/app_question3_title"
         android:layout_above="@+id/radioGroup3"
-        android:layout_alignLeft="@+id/radioGroup3"
-        android:layout_alignStart="@+id/radioGroup3" />
+        android:layout_toStartOf="@+id/app_button_next"
+        android:padding="5dp" />
 
     <Space
         android:layout_width="20dp"

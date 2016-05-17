@@ -104,7 +104,7 @@ public class ResultActivity extends Activity {
 
         if (GlobalVariables.commission.compareToIgnoreCase(getString(R.string.secret_passenger))==0){
             TO = new String[]{"antsharapov@ya.ru"};
-            CC = new String[]{"sharapovav@aaq.basela.aero"};
+            CC = new String[]{"sharapovav@aaq.basel.aero"};
         }
         else {
             TO = new String[]{"SharapovAV@aaq.basel.aero"};

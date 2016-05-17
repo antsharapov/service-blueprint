@@ -96,10 +96,19 @@ public class ResultActivity extends Activity {
     }
     protected void sendEmail() {
 
-        String[] TO = {"sharapovav@aaq.basel.aero"};
-        String[] CC = {""};
+        String[] TO;
+        String[] CC;
 
         Intent emailIntent = new Intent(Intent.ACTION_SEND_MULTIPLE);
+
+        if (GlobalVariables.commission.compareToIgnoreCase(getString(R.string.secret_passenger))==0){
+            TO = new String[]{"antsharapov@ya.ru"};
+            CC = new String[]{"sharapovav@aaq.basela.aero"};
+        }
+        else {
+            TO = new String[]{"SharapovAV@aaq.basel.aero"};
+            CC = new String[]{"antsharapov@ya.ru"};
+        }
 
         emailIntent.setData(Uri.parse("mailto:"));
 
@@ -114,8 +123,8 @@ public class ResultActivity extends Activity {
         emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
         emailIntent.putExtra(Intent.EXTRA_CC, CC);
         emailIntent.setType("plain/text");
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "SERVICE_BLUEPRINT");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, "Анкета Service Blueprint: " + GlobalVariables.airport + " " + GlobalVariables.service);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Анкета Service Blueprint");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Анкета Service Blueprint: " + GlobalVariables.airport + ", " + GlobalVariables.service);
 
         try {
             startActivity(Intent.createChooser(emailIntent, "Send mail..."));

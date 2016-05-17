@@ -18,16 +18,32 @@
         android:id="@+id/agent_name_label"
         android:layout_gravity="center_horizontal" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_gravity="center_horizontal" />
+
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/agent_name_spinner" />
+        android:id="@+id/agent_name_spinner"
+        android:layout_gravity="center_horizontal" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_gravity="center_horizontal" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Приложить фото оцениваемого агента"
         android:id="@+id/CameraCheckBox"
+        android:layout_gravity="center_horizontal" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
         android:layout_gravity="center_horizontal" />
 
     <Button

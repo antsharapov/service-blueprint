@@ -13,7 +13,7 @@ public class GlobalVariables {
     public static String commission_name;
     public static String agent_name;
     public static String agent_photo = "";
-    public static String[] results_array = new String[100];
+    public static String[] results_array = new String[70];
     public static int results_array_index = 0;
     public static int triple_test_counter =1;
     public static String results_csv = Environment.getExternalStoragePublicDirectory(

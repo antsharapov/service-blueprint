@@ -12,9 +12,7 @@ import android.widget.TextView;
 
 public class DisclaimerActivity extends Activity
 {
-    private TextView disclaimer;
     private Button next_button;
-    private CheckBox agreed_cb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -24,10 +22,10 @@ public class DisclaimerActivity extends Activity
         next_button = (Button) findViewById(R.id.disclaimer_next_button);
         next_button.setEnabled(false);
 
-        disclaimer = (TextView) findViewById(R.id.disclaimer);
+        TextView disclaimer = (TextView) findViewById(R.id.disclaimer);
         disclaimer.setText(R.string.disclaimer);
 
-        agreed_cb = (CheckBox) findViewById(R.id.disclaimer_agreed_checkbox);
+        CheckBox agreed_cb = (CheckBox) findViewById(R.id.disclaimer_agreed_checkbox);
         agreed_cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {

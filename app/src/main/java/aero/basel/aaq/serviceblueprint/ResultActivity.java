@@ -63,7 +63,8 @@ public class ResultActivity extends Activity {
                 System.arraycopy(getResources().getStringArray(R.array.questions_appearance),0,res,0,getResources().getStringArray(R.array.questions_appearance).length);
                 System.arraycopy(getResources().getStringArray(R.array.sop_questions),0,res, getResources().getStringArray(R.array.questions_appearance).length, getResources().getStringArray(R.array.sop_questions).length);
                 writer.writeNext(res);
-            }
+                }
+
             else {
                 String[] res = new String[getResources().getStringArray(R.array.questions_appearance).length+getResources().getStringArray(R.array.sab_questions).length];
                 System.arraycopy(getResources().getStringArray(R.array.questions_appearance),0,res,0,getResources().getStringArray(R.array.questions_appearance).length);

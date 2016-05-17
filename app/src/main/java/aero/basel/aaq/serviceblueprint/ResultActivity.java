@@ -123,12 +123,12 @@ public class ResultActivity extends Activity {
 
         emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
         emailIntent.putExtra(Intent.EXTRA_CC, CC);
-        emailIntent.setType("plain/text");
+        emailIntent.setType("text/html");
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Анкета Service Blueprint");
         emailIntent.putExtra(Intent.EXTRA_TEXT, "Анкета Service Blueprint: " + GlobalVariables.airport + ", " + GlobalVariables.service);
 
         try {
-            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+            startActivity(Intent.createChooser(emailIntent, "Отправить на почту через:"));
             //finish();
         } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(this,

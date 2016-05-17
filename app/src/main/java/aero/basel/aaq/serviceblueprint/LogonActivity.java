@@ -60,7 +60,7 @@ public class LogonActivity extends Activity {
             if (username.getText().toString().equals(db_username) && password.getText().toString().equals(db_pass)) {
                 success = true;
                 Intent intent = new Intent(LogonActivity.this, AgentSelectionActivity.class);
-                GlobalVariables.commission_name = DatabaseHelper.REALNAME_USERS_COLUMN;
+                GlobalVariables.commission_name = cursor.getString(cursor.getColumnIndex(DatabaseHelper.REALNAME_USERS_COLUMN));
                 startActivity(intent);
                 finish();
                 break;

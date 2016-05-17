@@ -15,8 +15,8 @@ import java.io.OutputStream;
 class DatabaseHelper extends SQLiteOpenHelper{
 
     // путь к базе данных вашего приложения
-    private static final String DB_PATH= "/data/data/aero.basel.aaq.serviceblueprint/databases/";
-    private static final String DB_NAME = "basel.db";
+    public static final String DB_PATH= "/data/data/aero.basel.aaq.serviceblueprint/databases/";
+    public static final String DB_NAME = "basel.db";
     private static final int DB_VERSION = 1;
     private SQLiteDatabase myDataBase;
     private final Context mContext;

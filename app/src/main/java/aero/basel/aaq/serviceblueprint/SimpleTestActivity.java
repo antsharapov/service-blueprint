@@ -55,6 +55,7 @@ public class SimpleTestActivity extends Activity {
                     tv.setText(questions[i]);
                 }
                 else {
+                    GlobalVariables.results_array[GlobalVariables.results_array_index]  = ((TextView) itemClicked).getText().toString();
                     Intent intent = new Intent (SimpleTestActivity.this,ResultActivity.class);
                     finish();
                     startActivity(intent);

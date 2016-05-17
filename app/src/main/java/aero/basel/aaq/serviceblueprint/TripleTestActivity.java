@@ -60,11 +60,14 @@ public class TripleTestActivity extends Activity {
                     if (GlobalVariables.triple_test_counter<3) {
                         Intent intent = new Intent(TripleTestActivity.this, TripleTestActivity.class);
                         GlobalVariables.triple_test_counter++;
+                        GlobalVariables.results_array[GlobalVariables.results_array_index]  = ((TextView) itemClicked).getText().toString();
+                        GlobalVariables.results_array_index++;
                         finish();
                         startActivity(intent);
                     }
                     else {
                         Intent intent = new Intent(TripleTestActivity.this, ResultActivity.class);
+                        GlobalVariables.results_array[GlobalVariables.results_array_index]  = ((TextView) itemClicked).getText().toString();
                         finish();
                         startActivity(intent);
                     }

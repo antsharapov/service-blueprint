@@ -51,9 +51,9 @@ public class AgentSelectionActivity extends Activity {
         SQLiteDatabase sdb = myDbHelper.getReadableDatabase();
         sdb.close();
         sdb = myDbHelper.getReadableDatabase();
-        String query = "Select name from agents where airport = ?";
-        Cursor cursor = sdb.rawQuery(query, new String[] { GlobalVariables.airport });
-        ArrayList<String> spinnerContent = new ArrayList<String>();
+        String query = "Select name from agents where airport = ? and service = ?";
+        Cursor cursor = sdb.rawQuery(query, new String[] { GlobalVariables.airport, GlobalVariables.service });
+        ArrayList<String> spinnerContent = new ArrayList<>();
         if(cursor.moveToFirst()){
             do{
                 String word = cursor.getString(cursor.getColumnIndexOrThrow("name"));

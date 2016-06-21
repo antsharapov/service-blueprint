@@ -28,7 +28,9 @@
         android:text="@string/next"
         android:id="@+id/disclaimer_next_button"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="0.25" />
+        android:layout_weight="0.25"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp" />
 
     <Space
         android:layout_width="20dp"

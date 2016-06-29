@@ -52,4 +52,5 @@
         android:text="@string/next"
         android:id="@+id/next_button"
         android:layout_gravity="center_horizontal" />
+
 </LinearLayout>

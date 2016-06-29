@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/disclaimer"
-        android:layout_weight="70"
+        android:layout_weight="0.7"
         android:gravity="center_vertical|center_horizontal"
         android:padding="15dp" />
 
@@ -19,7 +19,7 @@
         android:text="@string/agreed"
         android:layout_gravity="center_horizontal"
         android:id="@+id/disclaimer_agreed_checkbox"
-        android:layout_weight="15"
+        android:layout_weight="0.15"
         android:layout_marginBottom="10dp" />
 
     <Button
@@ -28,6 +28,12 @@
         android:text="@string/next"
         android:id="@+id/disclaimer_next_button"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="15"
-        android:layout_marginBottom="10dp" />
+        android:layout_weight="0.25"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp" />
+
+    <Space
+        android:layout_width="20dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.15" />
 </LinearLayout>

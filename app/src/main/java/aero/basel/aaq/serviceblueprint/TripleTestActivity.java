@@ -3,10 +3,15 @@ package aero.basel.aaq.serviceblueprint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Chronometer;
+import android.widget.CompoundButton;
 import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +26,23 @@ public class TripleTestActivity extends Activity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_triple_test);
+
+        final Chronometer timer = (Chronometer) findViewById(R.id.timer);
+        Switch timer_switch = (Switch) findViewById(R.id.timer_switch);
+
+        timer_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    timer.setBase(SystemClock.elapsedRealtime() + GlobalVariables.timer_base[GlobalVariables.triple_test_counter]);
+                    timer.start();
+                }
+                else {
+                    GlobalVariables.timer_base[GlobalVariables.triple_test_counter] = timer.getBase() - SystemClock.elapsedRealtime();
+                    timer.stop();
+                }
+            }
+        });
 
         if (GlobalVariables.service.compareToIgnoreCase(getString(R.string.sop))==0) {
             questions = getResources().getStringArray(R.array.sop_questions);
@@ -62,12 +84,14 @@ public class TripleTestActivity extends Activity {
                         GlobalVariables.triple_test_counter++;
                         GlobalVariables.results_array[GlobalVariables.results_array_index]  = ((TextView) itemClicked).getText().toString();
                         GlobalVariables.results_array_index++;
+                        GlobalVariables.timer_base[GlobalVariables.triple_test_counter]=SystemClock.elapsedRealtime()-timer.getBase();
                         finish();
                         startActivity(intent);
                     }
                     else {
                         Intent intent = new Intent(TripleTestActivity.this, ResultActivity.class);
                         GlobalVariables.results_array[GlobalVariables.results_array_index]  = ((TextView) itemClicked).getText().toString();
+                        GlobalVariables.timer_base[GlobalVariables.triple_test_counter]=SystemClock.elapsedRealtime()-timer.getBase();
                         finish();
                         startActivity(intent);
                     }

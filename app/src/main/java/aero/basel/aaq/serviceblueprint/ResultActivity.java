@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.renderscript.Sampler;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -51,6 +52,8 @@ public class ResultActivity extends Activity {
             else {
                 writer.writeNext(new String[] {"\t"});
                 writer.writeNext(new String[]{"Ф.И.О проверяющего:", GlobalVariables.commission_name});
+                writer.writeNext(new String[] {"\t"});
+                writer.writeNext(new String[]{"Таймеры:", String.valueOf(GlobalVariables.timer_base[1]),String.valueOf(GlobalVariables.timer_base[2]),String.valueOf(GlobalVariables.timer_base[3])});
             }
             writer.writeNext(new String[] {"\t"});
             writer.writeNext(new String[]{"Фамилия агента:", GlobalVariables.agent_name});

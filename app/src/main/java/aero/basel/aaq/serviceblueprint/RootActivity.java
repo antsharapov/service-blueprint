@@ -15,6 +15,7 @@ public class RootActivity extends Activity
     public void onCreate(Bundle savedInstanceState)
     {
         for (int i = 0; i < 70; i++) GlobalVariables.results_array[i] = "end";
+        for (int i = 0; i<4; i++) GlobalVariables.timer_base[i] = 0;
         super.onCreate(savedInstanceState);
         activities.add(this);
         Intent intent = new Intent(RootActivity.this, DisclaimerActivity.class);

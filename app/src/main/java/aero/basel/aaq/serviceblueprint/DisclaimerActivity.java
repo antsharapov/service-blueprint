@@ -1,6 +1,5 @@
 package aero.basel.aaq.serviceblueprint;
 
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +8,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 
 public class DisclaimerActivity extends Activity
 {
@@ -43,6 +46,37 @@ public class DisclaimerActivity extends Activity
         next_button.setOnClickListener(new View.OnClickListener() {
                                            @Override
                                            public void onClick(View view) {
+
+                                               Thread thread = new Thread(new Runnable()
+                                               {
+                                                   @Override
+                                                   public void run()
+                                                   {
+                                                       try
+                                                       {
+
+                                               HttpURLConnection connection;
+                                               OutputStreamWriter request = null;
+                                               URL url = null;
+                                               String parameters = "name=test&mail=test@dummy.ru";
+
+                                                   url = new URL("http://sd-glpi.basel.aero.local/phpmyadmin/and.php");
+                                                   connection = (HttpURLConnection) url.openConnection();
+                                                   connection.setDoOutput(true);
+                                                   connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                                                   connection.setRequestMethod("POST");
+                                                   request = new OutputStreamWriter(connection.getOutputStream());
+                                                   request.write(parameters);
+                                                   request.flush();
+                                                   request.close();
+                                                       }
+                                                       catch (Exception e)
+                                                       {
+                                                           e.printStackTrace();
+                                                       }
+                                                   }
+                                               });
+                                                thread.start();
                                                Intent intent = new Intent(DisclaimerActivity.this, AuthActivity.class);
                                                startActivity(intent);
                                                finish();

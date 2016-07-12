@@ -24,7 +24,7 @@
         android:id="@+id/FlightNumberField"
         android:hint="Введите номер рейса"
         android:layout_gravity="center_horizontal"
-        android:inputType="number" />
+        android:inputType="numberSigned" />
 
     <Space
         android:layout_width="20dp"

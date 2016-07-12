@@ -8,7 +8,7 @@
         android:id="@+id/radioGroup1"
         android:padding="10dp"
         android:layout_below="@+id/app_question2_title"
-        android:layout_alignEnd="@+id/app_question1_title">
+        android:layout_alignEnd="@+id/app_button_back">
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -109,7 +109,9 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:onClick="NextButtonClick" />
+        android:onClick="NextButtonClick"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -119,7 +121,9 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:onClick="BackButtonClick" />
+        android:onClick="BackButtonClick"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="15dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -138,7 +142,7 @@
         android:id="@+id/app_question1_title"
         android:padding="5dp"
         android:layout_above="@+id/radioGroup1"
-        android:layout_alignParentStart="true" />
+        android:layout_alignEnd="@+id/radioGroup1" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -157,9 +161,9 @@
         android:text="Small Text"
         android:id="@+id/app_question3_title"
         android:padding="5dp"
-        android:layout_above="@+id/radioGroup3"
-        android:layout_alignParentEnd="true"
-        android:maxWidth="150dp" />
+        android:maxWidth="150dp"
+        android:layout_below="@+id/space"
+        android:layout_alignStart="@+id/radioGroup3" />
 
     <Space
         android:layout_width="20dp"

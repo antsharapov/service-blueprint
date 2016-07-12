@@ -18,6 +18,6 @@ public class GlobalVariables {
     public static int results_array_index = 0;
     public static int triple_test_counter =1;
     public static String results_csv = Environment.getExternalStoragePublicDirectory(
-            Environment.DIRECTORY_DOWNLOADS) + "/basel_results.csv";
+            Environment.DIRECTORY_DOCUMENTS) + "/basel_results.csv";
 
 }

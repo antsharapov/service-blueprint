@@ -14,18 +14,6 @@
         <item>Служба авиационной безопасности</item>
         <item>Служба организации перевозок</item>
     </string-array>
-    <string-array name="questions">
-        <item>question1</item>
-        <item>question2</item>
-        <item>question3</item>
-        <item>question4</item>
-        <item>question5</item>
-        <item>question6</item>
-        <item>question7</item>
-        <item>question8</item>
-        <item>question9</item>
-        <item>question10</item>
-    </string-array>
     <string-array name="marks">
         <item>+</item>
         <item>0</item>

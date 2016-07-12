@@ -9,7 +9,10 @@
         android:id="@+id/button"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:onClick="BackButtonClick" />
+        android:onClick="BackButtonClick"
+        android:layout_marginBottom="25dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp" />
 
     <TextView
         android:layout_width="wrap_content"

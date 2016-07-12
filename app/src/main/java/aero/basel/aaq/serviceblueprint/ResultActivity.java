@@ -49,13 +49,13 @@ public class ResultActivity extends Activity {
                 writer.writeNext(new String[] {"\t"});
                 writer.writeNext(new String[]{"Дата рейса тайного пассажира:", GlobalVariables.person_flight_date});
                 writer.writeNext(new String[] {"\t"});
-                writer.writeNext(new String[]{"Время, затраченное на опрос:", String.valueOf(GlobalVariables.timer_base[0])});
+                writer.writeNext(new String[]{"Время, затраченное на опрос:", String.valueOf(GlobalVariables.timer_base[0]) + "c."});
             }
             else {
                 writer.writeNext(new String[] {"\t"});
                 writer.writeNext(new String[]{"Ф.И.О проверяющего:", GlobalVariables.commission_name});
                 writer.writeNext(new String[] {"\t"});
-                writer.writeNext(new String[]{"Таймеры:", String.valueOf(GlobalVariables.timer_base[1]),String.valueOf(GlobalVariables.timer_base[2]),String.valueOf(GlobalVariables.timer_base[3])});
+                writer.writeNext(new String[]{"Таймеры:", String.valueOf(GlobalVariables.timer_base[1]) + "c.",String.valueOf(GlobalVariables.timer_base[2]) + "c.",String.valueOf(GlobalVariables.timer_base[3]) + "c."});
             }
             writer.writeNext(new String[] {"\t"});
             writer.writeNext(new String[]{"Фамилия агента:", GlobalVariables.agent_name});

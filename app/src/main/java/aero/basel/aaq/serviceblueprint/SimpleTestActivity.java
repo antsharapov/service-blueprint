@@ -3,9 +3,11 @@ package aero.basel.aaq.serviceblueprint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Chronometer;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,6 +42,10 @@ public class SimpleTestActivity extends Activity {
         tv = (TextView) findViewById(R.id.simple_test_tv);
         tv.setText(questions[i]);
 
+        final Chronometer timer = (Chronometer) findViewById(R.id.simple_test_timer);
+        timer.setBase(SystemClock.elapsedRealtime());
+        timer.start();
+
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 R.layout.listview, getResources().getStringArray(R.array.marks));
         ListView marks_lv = (ListView) findViewById(R.id.marks_listView);
@@ -57,6 +63,7 @@ public class SimpleTestActivity extends Activity {
                 else {
                     GlobalVariables.results_array[GlobalVariables.results_array_index]  = ((TextView) itemClicked).getText().toString();
                     Intent intent = new Intent (SimpleTestActivity.this,ResultActivity.class);
+                    GlobalVariables.timer_base[0] = (SystemClock.elapsedRealtime() - timer.getBase() )/ 1000;
                     finish();
                     startActivity(intent);
                 }

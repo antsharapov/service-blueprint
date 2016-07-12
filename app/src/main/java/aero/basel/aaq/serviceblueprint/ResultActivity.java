@@ -48,6 +48,8 @@ public class ResultActivity extends Activity {
                 writer.writeNext(new String[]{"Рейс тайного пассажира:", GlobalVariables.person_flight});
                 writer.writeNext(new String[] {"\t"});
                 writer.writeNext(new String[]{"Дата рейса тайного пассажира:", GlobalVariables.person_flight_date});
+                writer.writeNext(new String[] {"\t"});
+                writer.writeNext(new String[]{"Время, затраченное на опрос:", String.valueOf(GlobalVariables.timer_base[0])});
             }
             else {
                 writer.writeNext(new String[] {"\t"});

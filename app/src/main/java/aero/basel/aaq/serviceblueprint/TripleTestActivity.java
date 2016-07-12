@@ -20,6 +20,8 @@ public class TripleTestActivity extends Activity {
     int i=0,j=0;
     TextView tv, counter_tv;
     String[] questions;
+    boolean timer_run;
+    long timer_pause;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +36,15 @@ public class TripleTestActivity extends Activity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
-                    timer.setBase(SystemClock.elapsedRealtime() + GlobalVariables.timer_base[GlobalVariables.triple_test_counter]);
+                    timer.setBase(SystemClock.elapsedRealtime() + timer_pause);
                     timer.start();
+                    timer_run = true;
                 }
                 else {
-                    GlobalVariables.timer_base[GlobalVariables.triple_test_counter] = timer.getBase() - SystemClock.elapsedRealtime();
+                    timer_pause = timer.getBase() - SystemClock.elapsedRealtime();
                     timer.stop();
+                    GlobalVariables.timer_base[GlobalVariables.triple_test_counter] = (SystemClock.elapsedRealtime() - timer.getBase() )/ 1000;
+                    timer_run = false;
                 }
             }
         });
@@ -81,17 +86,17 @@ public class TripleTestActivity extends Activity {
                 else {
                     if (GlobalVariables.triple_test_counter<3) {
                         Intent intent = new Intent(TripleTestActivity.this, TripleTestActivity.class);
+                        if (timer_run) GlobalVariables.timer_base[GlobalVariables.triple_test_counter] = (SystemClock.elapsedRealtime() - timer.getBase() )/ 1000;
                         GlobalVariables.triple_test_counter++;
                         GlobalVariables.results_array[GlobalVariables.results_array_index]  = ((TextView) itemClicked).getText().toString();
                         GlobalVariables.results_array_index++;
-                        GlobalVariables.timer_base[GlobalVariables.triple_test_counter]=SystemClock.elapsedRealtime()-timer.getBase();
                         finish();
                         startActivity(intent);
                     }
                     else {
                         Intent intent = new Intent(TripleTestActivity.this, ResultActivity.class);
                         GlobalVariables.results_array[GlobalVariables.results_array_index]  = ((TextView) itemClicked).getText().toString();
-                        GlobalVariables.timer_base[GlobalVariables.triple_test_counter]=SystemClock.elapsedRealtime()-timer.getBase();
+                        if (timer_run) GlobalVariables.timer_base[GlobalVariables.triple_test_counter] = (SystemClock.elapsedRealtime() - timer.getBase() ) / 1000;
                         finish();
                         startActivity(intent);
                     }

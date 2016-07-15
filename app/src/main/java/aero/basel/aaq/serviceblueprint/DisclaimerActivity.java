@@ -8,13 +8,12 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.io.BufferedReader;
+/*import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.URL;
+import java.net.URL;*/
 
 
 public class DisclaimerActivity extends Activity
@@ -51,7 +50,7 @@ public class DisclaimerActivity extends Activity
                                            @Override
                                            public void onClick(View view) {
 
-                                               Thread thread = new Thread(new Runnable()
+                                           /*    Thread thread = new Thread(new Runnable()
                                                {
                                                    @Override
                                                    public void run()
@@ -84,8 +83,7 @@ public class DisclaimerActivity extends Activity
                                                            }
                                                            // Response from server after login process will be stored in response variable.
                                                            response = sb.toString();
-                                                           // You can perform UI operations here
-                                                           //Toast.makeText(DisclaimerActivity.this,"Message from Server: \n"+ response, Toast.LENGTH_LONG).show();
+
                                                            isr.close();
                                                            reader.close();
                                                        }
@@ -95,7 +93,7 @@ public class DisclaimerActivity extends Activity
                                                        }
                                                    }
                                                });
-                                                thread.start();
+                                                thread.start();*/
                                                Intent intent = new Intent(DisclaimerActivity.this, AuthActivity.class);
                                                startActivity(intent);
                                                finish();

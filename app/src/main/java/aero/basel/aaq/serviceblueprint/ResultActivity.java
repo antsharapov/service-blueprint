@@ -108,12 +108,12 @@ public class ResultActivity extends Activity {
         Intent emailIntent = new Intent(Intent.ACTION_SEND_MULTIPLE);
 
         if (GlobalVariables.commission.compareToIgnoreCase(getString(R.string.secret_passenger))==0){
-            TO = new String[]{"antsharapov@ya.ru"};
-            CC = new String[]{"sharapovav@aaq.basel.aero"};
+            TO = new String[]{"SharapovAV@aaq.basel.aero"};
+            CC = new String[]{""};
         }
         else {
             TO = new String[]{"SharapovAV@aaq.basel.aero"};
-            CC = new String[]{"antsharapov@ya.ru"};
+            CC = new String[]{""};
         }
 
         emailIntent.setData(Uri.parse("mailto:"));
@@ -137,7 +137,8 @@ public class ResultActivity extends Activity {
             //finish();
         } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(this,
-                    "There is no email client installed.", Toast.LENGTH_SHORT).show();
+                    "Не найдена почтовая программа!", Toast.LENGTH_LONG).show();
+            RootActivity.finishAll();
         }
     }
 

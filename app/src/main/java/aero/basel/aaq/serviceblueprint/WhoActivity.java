@@ -32,7 +32,7 @@ public class WhoActivity extends Activity {
                 GlobalVariables.person_flight_date = date_field.getText().toString();
 
                 if (!GlobalVariables.person_name.isEmpty() && !GlobalVariables.person_flight.isEmpty() && !GlobalVariables.person_flight_date.isEmpty()) {
-                    Intent intent = new Intent(WhoActivity.this, AgentSelectionActivity.class);
+                    Intent intent = new Intent(WhoActivity.this, /*AgentSelection*/QRCodeActivity.class);
                     startActivity(intent);
                     finish();
                 } else {

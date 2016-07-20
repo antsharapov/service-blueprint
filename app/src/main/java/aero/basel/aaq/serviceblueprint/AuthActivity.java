@@ -48,13 +48,17 @@ public class AuthActivity extends Activity {
                                     long id) {
                 GlobalVariables.service = ((TextView) itemClicked).getText().toString();
                 service_lv.setVisibility(View.GONE);
-                commission_lv.setVisibility(View.VISIBLE);
-                tv.setText(R.string.commission_choose);
+                GlobalVariables.commission = getString(R.string.secret_passenger);
+                Intent intent = new Intent(AuthActivity.this, LogonActivity.class);
+                finish();
+                startActivity(intent);
+/*                commission_lv.setVisibility(View.VISIBLE);
+                tv.setText(R.string.commission_choose);*/
             }
         });
 //**********************************************
 // *******************Commission ListView init&click
-        adapter = new ArrayAdapter<>(this,
+/*        adapter = new ArrayAdapter<>(this,
                 R.layout.listview, getResources().getStringArray(R.array.commission));
         commission_lv = (ListView) findViewById(R.id.CommissionListView);
         commission_lv.setAdapter(adapter);
@@ -79,7 +83,7 @@ public class AuthActivity extends Activity {
                     startActivity(intent);
                 }
             }
-        });
+        });*/
 //**********************************************
         service_lv.setVisibility(View.GONE);
         commission_lv.setVisibility(View.GONE);

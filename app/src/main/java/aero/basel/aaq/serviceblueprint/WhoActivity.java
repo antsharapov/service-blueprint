@@ -55,16 +55,10 @@ public class WhoActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent result) {
         if (resultCode == RESULT_OK) {
-            String barcode = result.getStringExtra("SCAN_RESULT");
-            //String type = result.getStringExtra("SCAN_RESULT_FORMAT");
-            GlobalVariables.agent_name = barcode;
+            GlobalVariables.agent_name = result.getStringExtra("SCAN_RESULT");
             Intent intent = new Intent (WhoActivity.this,AppearanceActivity.class);
             startActivity(intent);
             finish();
-            //Toast.makeText(this, String.format("barcode: '%s' type: %s", barcode, type), Toast.LENGTH_SHORT).show();
-        }
-        else{
-
         }
     }
 }

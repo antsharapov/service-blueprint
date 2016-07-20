@@ -63,7 +63,7 @@ public class WhoActivity extends Activity {
             /*Intent intent = new Intent (WhoActivity.this,AppearanceActivity.class);
             startActivity(intent);
             finish();*/
-            new AlertDialog.Builder(getApplicationContext())
+            new AlertDialog.Builder(WhoActivity.this)
                     .setTitle("Добавление фото агента")
                     .setMessage("Хотите приложить фото агента?")
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {

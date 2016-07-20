@@ -49,7 +49,7 @@ public class AuthActivity extends Activity {
                 GlobalVariables.service = ((TextView) itemClicked).getText().toString();
                 service_lv.setVisibility(View.GONE);
                 GlobalVariables.commission = getString(R.string.secret_passenger);
-                Intent intent = new Intent(AuthActivity.this, LogonActivity.class);
+                Intent intent = new Intent(AuthActivity.this, WhoActivity.class);
                 finish();
                 startActivity(intent);
 /*                commission_lv.setVisibility(View.VISIBLE);

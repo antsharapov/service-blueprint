@@ -86,6 +86,6 @@ public class AuthActivity extends Activity {
         });*/
 //**********************************************
         service_lv.setVisibility(View.GONE);
-        commission_lv.setVisibility(View.GONE);
+//        commission_lv.setVisibility(View.GONE);
      }
 }

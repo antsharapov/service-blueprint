@@ -1,6 +1,9 @@
 package aero.basel.aaq.serviceblueprint;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Application;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -45,6 +48,7 @@ public class WhoActivity extends Activity {
                         Uri marketUri = Uri.parse("market://details?id=com.google.zxing.client.android");
                         Intent marketIntent = new Intent(Intent.ACTION_VIEW,marketUri);
                         startActivity(marketIntent);
+                        Toast.makeText(WhoActivity.this, "Установите QR-сканер", Toast.LENGTH_LONG).show();
                     }
                 } else {
                     Toast.makeText(getApplicationContext(), R.string.empty_fields, Toast.LENGTH_LONG).show();
@@ -56,9 +60,29 @@ public class WhoActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent result) {
         if (resultCode == RESULT_OK) {
             GlobalVariables.agent_name = result.getStringExtra("SCAN_RESULT");
-            Intent intent = new Intent (WhoActivity.this,AppearanceActivity.class);
+            /*Intent intent = new Intent (WhoActivity.this,AppearanceActivity.class);
             startActivity(intent);
-            finish();
+            finish();*/
+            new AlertDialog.Builder(getApplicationContext())
+                    .setTitle("Добавление фото агента")
+                    .setMessage("Хотите приложить фото агента?")
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent (WhoActivity.this,AgentSelectionActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    })
+                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent (WhoActivity.this,AppearanceActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+
         }
     }
 }

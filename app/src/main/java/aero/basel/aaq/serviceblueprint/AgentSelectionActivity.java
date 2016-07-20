@@ -24,16 +24,16 @@ import java.util.Date;
 
 public class AgentSelectionActivity extends Activity {
 
-    private Spinner agent_spinner;
-    private CheckBox camera_checkbox;
+/*    private Spinner agent_spinner;
+    private CheckBox camera_checkbox;*/
     private File f = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_agent_selection);
+        //setContentView(R.layout.activity_agent_selection);
 
-        agent_spinner = (Spinner) findViewById(R.id.agent_name_spinner);
+/*        agent_spinner = (Spinner) findViewById(R.id.agent_name_spinner);
 
         DatabaseHelper myDbHelper = new DatabaseHelper(this);
         try {
@@ -85,18 +85,18 @@ public class AgentSelectionActivity extends Activity {
                                                        @Override
                                                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                                                            if (isChecked)
-                                                           {
-                                                               Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                                                           {*/
+        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
-                                                               try {
-                                                                   f = createImageFile();
-                                                               } catch (IOException ex) {
-                                                                   Toast.makeText(getApplicationContext(),"File creation failed!", Toast.LENGTH_LONG).show();
-                                                               }
+        try {
+            f = createImageFile();
+        } catch (IOException ex) {
+            Toast.makeText(getApplicationContext(), "File creation failed!", Toast.LENGTH_LONG).show();
+        }
 
-                                                               cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
-                                                               startActivityForResult(cameraIntent, 1);
-                                                           }
+        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
+        startActivityForResult(cameraIntent, 1);
+                                                          /* }
                                                            else {
                                                                camera_checkbox.setText(R.string.add_photo);
                                                                f.delete();
@@ -106,15 +106,20 @@ public class AgentSelectionActivity extends Activity {
         );
     }
 
-
+*/
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
-            camera_checkbox.setText(R.string.photo_success);
+            GlobalVariables.agent_photo = f.getAbsolutePath();
+            Intent intent = new Intent (AgentSelectionActivity.this,AppearanceActivity.class);
+            startActivity(intent);
+            finish();
+         /*   camera_checkbox.setText(R.string.photo_success);*/
         }
-        else{
+        else{/*
             camera_checkbox.setChecked(false);
-            camera_checkbox.setText(R.string.add_photo);
+            camera_checkbox.setText(R.string.add_photo);*/
         }
     }
 

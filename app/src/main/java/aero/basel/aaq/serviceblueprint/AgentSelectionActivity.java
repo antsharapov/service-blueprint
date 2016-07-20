@@ -1,9 +1,7 @@
 package aero.basel.aaq.serviceblueprint;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,8 +9,6 @@ import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -20,7 +16,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -68,7 +63,7 @@ public class AgentSelectionActivity extends Activity {
 
         String[] allSpinner = new String[spinnerContent.size()];
         allSpinner = spinnerContent.toArray(allSpinner);
-        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(AgentSelectionActivity.this,android.R.layout.simple_spinner_item, allSpinner);
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(AgentSelectionActivity.this, android.R.layout.simple_spinner_item, allSpinner);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         agent_spinner.setAdapter(spinnerAdapter);
 

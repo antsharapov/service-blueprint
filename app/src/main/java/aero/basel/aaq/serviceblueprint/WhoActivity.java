@@ -2,7 +2,6 @@ package aero.basel.aaq.serviceblueprint;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Application;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -36,7 +35,7 @@ public class WhoActivity extends Activity {
                 GlobalVariables.person_flight_date = date_field.getText().toString();
 
                 if (!GlobalVariables.person_name.isEmpty() && !GlobalVariables.person_flight.isEmpty() && !GlobalVariables.person_flight_date.isEmpty()) {
-                    /*Intent intent = new Intent(WhoActivity.this, /*AgentSelection//QRCodeActivity.class);
+                    /*Intent intent = new Intent(WhoActivity.this, AgentSelectionActivity.class);
                     startActivity(intent);
                     finish(); */
                     try {
@@ -64,8 +63,8 @@ public class WhoActivity extends Activity {
             startActivity(intent);
             finish();*/
             new AlertDialog.Builder(WhoActivity.this)
-                    .setTitle("Добавление фото агента")
-                    .setMessage("Хотите приложить фото агента?")
+                    .setTitle("Добавление фото")
+                    .setMessage("Приложить фото агента?")
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Intent intent = new Intent (WhoActivity.this,AgentSelectionActivity.class);

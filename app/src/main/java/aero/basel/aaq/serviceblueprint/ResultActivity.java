@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.renderscript.Sampler;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -108,11 +107,11 @@ public class ResultActivity extends Activity {
         Intent emailIntent = new Intent(Intent.ACTION_SEND_MULTIPLE);
 
         if (GlobalVariables.commission.compareToIgnoreCase(getString(R.string.secret_passenger))==0){
-            TO = new String[]{"SharapovAV@aaq.basel.aero"};
+            TO = new String[]{"ZolotovskiyAS@aaq.basel.aero"};
             CC = new String[]{""};
         }
         else {
-            TO = new String[]{"SharapovAV@aaq.basel.aero"};
+            TO = new String[]{"ZolotovskiyAS@aaq.basel.aero"};
             CC = new String[]{""};
         }
 

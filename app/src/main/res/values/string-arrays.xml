@@ -6,10 +6,6 @@
         <item>Анапа</item>
         <item>Геленджик</item>
     </string-array>
-    <string-array name="commission">
-        <item>Тайный пассажир</item>
-        <item>Внутренняя коммиссия</item>
-    </string-array>
     <string-array name="services">
         <item>Служба авиационной безопасности</item>
         <item>Служба организации перевозок</item>

@@ -13,26 +13,22 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/plus"
-            android:id="@+id/radioButton1" />
+            android:text="@string/plus" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/zero"
-            android:id="@+id/radioButton2" />
+            android:text="@string/zero" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/minus"
-            android:id="@+id/radioButton3" />
+            android:text="@string/minus" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cross"
-            android:id="@+id/radioButton4" />
+            android:text="@string/cross" />
     </RadioGroup>
 
     <RadioGroup
@@ -46,26 +42,22 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/plus"
-            android:id="@+id/radioButton5" />
+            android:text="@string/plus" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/zero"
-            android:id="@+id/radioButton6" />
+            android:text="@string/zero" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/minus"
-            android:id="@+id/radioButton7" />
+            android:text="@string/minus" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cross"
-            android:id="@+id/radioButton8" />
+            android:text="@string/cross" />
     </RadioGroup>
 
     <RadioGroup
@@ -78,26 +70,22 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/plus"
-            android:id="@+id/radioButton9" />
+            android:text="@string/plus" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/zero"
-            android:id="@+id/radioButton10" />
+            android:text="@string/zero" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/minus"
-            android:id="@+id/radioButton11" />
+            android:text="@string/minus" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cross"
-            android:id="@+id/radioButton12" />
+            android:text="@string/cross" />
     </RadioGroup>
 
     <Button

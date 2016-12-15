@@ -48,6 +48,8 @@ public class ResultActivity extends Activity {
                 writer.writeNext(new String[] {"\t"});
                 writer.writeNext(new String[]{"Дата рейса тайного пассажира:", GlobalVariables.person_flight_date});
                 writer.writeNext(new String[] {"\t"});
+                writer.writeNext(new String[]{"Номер стойки регистрации:", GlobalVariables.desk_num});
+                writer.writeNext(new String[] {"\t"});
                 writer.writeNext(new String[]{"Время, затраченное на опрос:", String.valueOf(GlobalVariables.timer_base[0]) + "c."});
             }
             else {
@@ -129,7 +131,7 @@ public class ResultActivity extends Activity {
         emailIntent.putExtra(Intent.EXTRA_CC, CC);
         emailIntent.setType("text/html");
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Анкета Service Blueprint");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, "Анкета Service Blueprint: " + GlobalVariables.airport + ", " + GlobalVariables.service);
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Анкета Service Blueprint: " + GlobalVariables.airport + ", " + GlobalVariables.service + ". Комментарии пользователя: " + GlobalVariables.comments_type + GlobalVariables.comments);
 
         try {
             startActivity(Intent.createChooser(emailIntent, "Отправить на почту через:"));

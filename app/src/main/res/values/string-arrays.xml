@@ -16,6 +16,11 @@
         <item>-</item>
         <item>x</item>
     </string-array>
+    <string-array name="comments_type">
+        <item>Жалоба</item>
+        <item>Благодарность</item>
+        <item>Предложение</item>
+    </string-array>
     <string-array name="headline_appearance">
         <item>Форменная одежда</item>
         <item>Пропуск/бейдж</item>

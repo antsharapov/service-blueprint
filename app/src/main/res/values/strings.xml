@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">Service Blueprint</string>
+    <string name="desk_num">Номер стойки регистрации</string>
+    <string name="comments_type">Выберите тип комментария</string>
     <string name="next">Вперед</string>
     <string name="back">Назад</string>
+    <string name="comments_hint">Пожалуйста, оставьте Ваш комментарий об обслуживании, замечания или пожелания</string>
     <string name="sop">Служба организации перевозок</string>
     <string name="sab">Служба авиационной безопасности</string>
     <string name="plus">+</string>

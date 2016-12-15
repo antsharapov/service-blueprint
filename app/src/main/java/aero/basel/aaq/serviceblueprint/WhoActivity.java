@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class WhoActivity extends Activity {
 
-    private EditText name_field, flight_field, date_field;
+    private EditText name_field, flight_field, date_field, desk_num_field;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,7 @@ public class WhoActivity extends Activity {
         name_field = (EditText) findViewById(R.id.NameField);
         flight_field = (EditText) findViewById(R.id.FlightNumberField);
         date_field = (EditText) findViewById(R.id.DateField);
+        desk_num_field = (EditText) findViewById(R.id.DeskNumField);
 
         Button next_button = (Button) findViewById(R.id.next_button);
         next_button.setOnClickListener(new View.OnClickListener() {
@@ -33,8 +34,10 @@ public class WhoActivity extends Activity {
                 GlobalVariables.person_name = name_field.getText().toString();
                 GlobalVariables.person_flight = flight_field.getText().toString();
                 GlobalVariables.person_flight_date = date_field.getText().toString();
+                GlobalVariables.desk_num = desk_num_field.getText().toString();
 
-                if (!GlobalVariables.person_name.isEmpty() && !GlobalVariables.person_flight.isEmpty() && !GlobalVariables.person_flight_date.isEmpty()) {
+
+                if (!GlobalVariables.person_name.isEmpty() && !GlobalVariables.person_flight.isEmpty() && !GlobalVariables.person_flight_date.isEmpty() && !GlobalVariables.desk_num.isEmpty()) {
                     /*Intent intent = new Intent(WhoActivity.this, AgentSelectionActivity.class);
                     startActivity(intent);
                     finish(); */

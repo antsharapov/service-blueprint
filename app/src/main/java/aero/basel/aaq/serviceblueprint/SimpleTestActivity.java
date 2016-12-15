@@ -62,7 +62,7 @@ public class SimpleTestActivity extends Activity {
                 }
                 else {
                     GlobalVariables.results_array[GlobalVariables.results_array_index]  = ((TextView) itemClicked).getText().toString();
-                    Intent intent = new Intent (SimpleTestActivity.this,ResultActivity.class);
+                    Intent intent = new Intent (SimpleTestActivity.this,CommentsActivity.class);
                     GlobalVariables.timer_base[0] = (SystemClock.elapsedRealtime() - timer.getBase() )/ 1000;
                     finish();
                     startActivity(intent);

@@ -107,11 +107,11 @@ public class ResultActivity extends Activity {
         Intent emailIntent = new Intent(Intent.ACTION_SEND_MULTIPLE);
 
         if (GlobalVariables.commission.compareToIgnoreCase(getString(R.string.secret_passenger))==0){
-            TO = new String[]{"ZolotovskiyAS@aaq.basel.aero"};
+            TO = new String[]{"SharapovAV@aaq.basel.aero"};
             CC = new String[]{""};
         }
         else {
-            TO = new String[]{"ZolotovskiyAS@aaq.basel.aero"};
+            TO = new String[]{"SharapovAV@aaq.basel.aero"};
             CC = new String[]{""};
         }
 

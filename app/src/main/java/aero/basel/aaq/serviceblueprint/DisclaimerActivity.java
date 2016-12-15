@@ -26,12 +26,14 @@ public class DisclaimerActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_disclaimer);
         next_button = (Button) findViewById(R.id.disclaimer_next_button);
-        next_button.setEnabled(false);
+        next_button.setEnabled(true);
 
         TextView disclaimer = (TextView) findViewById(R.id.disclaimer);
         disclaimer.setText(R.string.disclaimer);
 
         CheckBox agreed_cb = (CheckBox) findViewById(R.id.disclaimer_agreed_checkbox);
+        agreed_cb.setVisibility(View.INVISIBLE);
+        /*
         agreed_cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
@@ -44,7 +46,7 @@ public class DisclaimerActivity extends Activity
                 }
             }
         }
-        );
+        );*/
 
         next_button.setOnClickListener(new View.OnClickListener() {
                                            @Override

@@ -7,11 +7,12 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:inputType="textCapWords"
         android:hint="Ваше Ф.И.О."
         android:ems="10"
         android:id="@+id/NameField"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:singleLine="false" />
 
     <Space
         android:layout_width="20dp"
@@ -24,7 +25,7 @@
         android:id="@+id/FlightNumberField"
         android:hint="Введите номер рейса"
         android:layout_gravity="center_horizontal"
-        android:inputType="numberSigned" />
+        android:inputType="number" />
 
     <Space
         android:layout_width="20dp"
@@ -33,10 +34,10 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="date"
         android:hint="Выберите дату Вашего рейса"
         android:ems="10"
-        android:id="@+id/DateField" />
+        android:id="@+id/DateField"
+        android:inputType="date" />
 
     <Space
         android:layout_width="20dp"

@@ -59,9 +59,9 @@ public class WhoActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent result) {
         if (resultCode == RESULT_OK) {
             GlobalVariables.agent_name = result.getStringExtra("SCAN_RESULT");
-            /*Intent intent = new Intent (WhoActivity.this,AppearanceActivity.class);
+            Intent intent = new Intent (WhoActivity.this,AppearanceActivity.class);
             startActivity(intent);
-            finish();*/
+            finish();/*
             new AlertDialog.Builder(WhoActivity.this)
                     .setTitle("Добавление фото")
                     .setMessage("Приложить фото агента?")
@@ -80,7 +80,7 @@ public class WhoActivity extends Activity {
                         }
                     })
                     .setIcon(android.R.drawable.ic_dialog_alert)
-                    .show();
+                    .show();*/
 
         }
     }

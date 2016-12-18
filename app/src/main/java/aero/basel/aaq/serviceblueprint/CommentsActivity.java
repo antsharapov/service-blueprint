@@ -25,7 +25,7 @@ public class CommentsActivity extends AppCompatActivity {
         comments_next_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalVariables.comments_type = comments_type_sp.toString();
+                GlobalVariables.comments_type = comments_type_sp.getSelectedItem().toString();
                 GlobalVariables.comments = comments_et.getText().toString();
                 Intent intent = new Intent (CommentsActivity.this,ResultActivity.class);
                 finish();

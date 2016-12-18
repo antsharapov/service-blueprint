@@ -131,7 +131,7 @@ public class ResultActivity extends Activity {
         emailIntent.putExtra(Intent.EXTRA_CC, CC);
         emailIntent.setType("text/html");
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Анкета Service Blueprint");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, "Анкета Service Blueprint: " + GlobalVariables.airport + ", " + GlobalVariables.service + ". Комментарии пользователя: " + GlobalVariables.comments_type + GlobalVariables.comments);
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Анкета Service Blueprint: " + GlobalVariables.airport + ", " + GlobalVariables.service + ". Комментарии пользователя:\n" + GlobalVariables.comments_type + ": " + GlobalVariables.comments);
 
         try {
             startActivity(Intent.createChooser(emailIntent, "Отправить на почту через:"));

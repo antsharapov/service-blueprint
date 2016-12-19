@@ -4,7 +4,7 @@
     <string name="comments_type">Выберите тип комментария</string>
     <string name="next">Вперед</string>
     <string name="back">Назад</string>
-    <string name="comments_hint">Пожалуйста, оставьте Ваш комментарий об обслуживании, замечания или пожелания</string>
+    <string name="comments_hint">Пожалуйста, оставьте Ваш комментарий об обслуживании, замечания или пожелания. Выше Вы можете выбрать категорию Вашего обращения. Спасибо!</string>
     <string name="sop">Служба организации перевозок</string>
     <string name="sab">Служба авиационной безопасности</string>
     <string name="plus">+</string>
@@ -18,7 +18,7 @@
     <string name="wrong_creds">\nНеверные учетные данные\n</string>
     <string name="exit">Выход</string>
     <string name="airport_choose">Выберите аэропорт:</string>
-    <string name="service_choose">Выберите службу:</string>
+    <string name="service_choose">Выберите службу, которую хотите оценить:</string>
     <string name="empty_fields">"Заполните все поля!"</string>
     <string name="agreed">Я согласен(-на)</string>
     <string name="secret_passenger">Тайный пассажир</string>

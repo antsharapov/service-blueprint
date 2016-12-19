@@ -10,8 +10,13 @@ import android.widget.Toast;
 
 import com.opencsv.*;
 
+import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -23,6 +28,53 @@ public class ResultActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_result);
+
+
+             Thread thread = new Thread(new Runnable()
+                                               {
+                                                   @Override
+                                                   public void run()
+                                                   {
+                                                       try
+                                                       {
+
+                                               HttpURLConnection connection;
+                                               OutputStreamWriter request = null;
+                                               URL url = null;
+                                                           String response = null;
+                                               String parameters = "name="+GlobalVariables.comments_type+"&mail="+GlobalVariables.comments;
+
+                                                   url = new URL("http://sd-glpi.basel.aero.local/phpmyadmin/and.php");
+                                                   connection = (HttpURLConnection) url.openConnection();
+                                                   connection.setDoOutput(true);
+                                                   connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                                                   connection.setRequestMethod("POST");
+                                                   request = new OutputStreamWriter(connection.getOutputStream());
+                                                   request.write(parameters);
+                                                   request.flush();
+                                                   request.close();
+                                                           String line = "";
+                                                           InputStreamReader isr = new InputStreamReader(connection.getInputStream());
+                                                           BufferedReader reader = new BufferedReader(isr);
+                                                           StringBuilder sb = new StringBuilder();
+                                                           while ((line = reader.readLine()) != null)
+                                                           {
+                                                               sb.append(line + "\n");
+                                                           }
+                                                           // Response from server after login process will be stored in response variable.
+                                                           response = sb.toString();
+
+                                                           isr.close();
+                                                           reader.close();
+                                                       }
+                                                       catch (Exception e)
+                                                       {
+                                                           e.printStackTrace();
+                                                       }
+                                                   }
+                                               });
+                                                thread.start();
+
 
         CSVWriter writer = null;
         try {

@@ -1,6 +1,8 @@
 package aero.basel.aaq.serviceblueprint;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -62,10 +64,30 @@ public class SimpleTestActivity extends Activity {
                 }
                 else {
                     GlobalVariables.results_array[GlobalVariables.results_array_index]  = ((TextView) itemClicked).getText().toString();
-                    Intent intent = new Intent (SimpleTestActivity.this,CommentsActivity.class);
+                    //Intent intent = new Intent (SimpleTestActivity.this,CommentsActivity.class);
                     GlobalVariables.timer_base[0] = (SystemClock.elapsedRealtime() - timer.getBase() )/ 1000;
-                    finish();
-                    startActivity(intent);
+                    //finish();
+                    //startActivity(intent);
+
+            new AlertDialog.Builder(SimpleTestActivity.this)
+                    .setTitle("Прилёт")
+                    .setMessage("Вы прилетаете в аэропорт группы компаний \"БазэлАэро\"?")
+                    .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent (SimpleTestActivity.this,ArrivalActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    })
+                    .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent (SimpleTestActivity.this,CommentsActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
                 }
             }
         });

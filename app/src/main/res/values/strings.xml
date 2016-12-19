@@ -8,6 +8,8 @@
     <string name="sop">Служба организации перевозок</string>
     <string name="sab">Служба авиационной безопасности</string>
     <string name="plus">+</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
     <string name="zero">0</string>
     <string name="minus">-</string>
     <string name="cross">x</string>

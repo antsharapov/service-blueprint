@@ -44,7 +44,7 @@
                 android:id="@+id/airports_spinner" />
 
             <TextView
-                android:text="TextView"
+                android:text="Транспорт в/из аэропорта"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView3" />
@@ -57,128 +57,96 @@
                 android:stepSize="1"
                 android:isIndicator="false" />
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:id="@+id/editText3"
-                android:digits="12345"
-                android:maxLength="1"
-                android:hint="Оценка от 1 до 5"
-                android:maxLines="1" />
-
             <TextView
-                android:text="TextView"
+                android:text="Чистота в терминале"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView4" />
 
-            <EditText
-                android:layout_width="match_parent"
+            <RatingBar
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:digits="12345"
-                android:maxLength="1"
-                android:id="@+id/editText4"
-                android:hint="Оценка от 1 до 5" />
+                android:id="@+id/ratingBar2"
+                android:numStars="5"
+                android:stepSize="1" />
 
             <TextView
-                android:text="TextView"
+                android:text="Лёгкость нахождения нужного пути"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView5" />
 
-            <EditText
-                android:layout_width="match_parent"
+            <RatingBar
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:digits="12345"
-                android:maxLength="1"
-                android:id="@+id/editText5"
-                android:hint="Оценка от 1 до 5" />
+                android:id="@+id/ratingBar3"
+                android:numStars="5"
+                android:stepSize="1" />
 
             <TextView
-                android:text="TextView"
+                android:text="Информационные экраны"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView7" />
 
-            <EditText
-                android:layout_width="match_parent"
+            <RatingBar
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:digits="12345"
-                android:maxLength="1"
-                android:id="@+id/editText6"
-                android:hint="Оценка от 1 до 5" />
+                android:id="@+id/ratingBar4"
+                android:numStars="5"
+                android:stepSize="1" />
 
             <TextView
-                android:text="TextView"
+                android:text="Звуковое оповещение"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView8" />
 
-            <EditText
-                android:layout_width="match_parent"
+            <RatingBar
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:digits="12345"
-                android:maxLength="1"
-                android:id="@+id/editText7"
-                android:hint="Оценка от 1 до 5" />
+                android:id="@+id/ratingBar5"
+                android:numStars="5"
+                android:stepSize="1" />
 
             <TextView
-                android:text="TextView"
+                android:text="Пограничный контроль"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView9" />
 
-            <EditText
-                android:layout_width="match_parent"
+            <RatingBar
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:digits="12345"
-                android:maxLength="1"
-                android:id="@+id/editText8"
-                android:hint="Оценка от 1 до 5" />
+                android:id="@+id/ratingBar6"
+                android:numStars="5"
+                android:stepSize="1" />
 
             <TextView
-                android:text="TextView"
+                android:text="Скорость выдачи багажа"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView10" />
 
-            <EditText
-                android:layout_width="match_parent"
+            <RatingBar
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:digits="12345"
-                android:maxLength="1"
-                android:id="@+id/editText9"
-                android:hint="Оценка от 1 до 5" />
+                android:id="@+id/ratingBar7"
+                android:numStars="5"
+                android:stepSize="1" />
 
             <TextView
-                android:text="TextView"
+                android:text="Таможенный контроль"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView11" />
 
-            <EditText
-                android:layout_width="match_parent"
+            <RatingBar
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:digits="12345"
-                android:maxLength="1"
-                android:id="@+id/editText10"
-                android:hint="Оценка от 1 до 5" />
+                android:id="@+id/ratingBar8"
+                android:numStars="5"
+                android:stepSize="1" />
 
             <Button
                 android:text="@string/next"

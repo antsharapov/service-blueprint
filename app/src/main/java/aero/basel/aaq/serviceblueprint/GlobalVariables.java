@@ -22,4 +22,14 @@ public class GlobalVariables {
     public static String comments = "";
     public static String desk_num = "";
     public static String comments_type = "";
+    public static String arrival_airport = "";
+    public static int arrival_transport = 0;
+    public static int arrival_cleanliness = 0;
+    public static int arrival_navi_ease = 0;
+    public static int arrival_fids = 0;
+    public static int arrival_sound = 0;
+    public static int arrival_bordercontrol = 0;
+    public static int arrival_baggage_waittime = 0;
+    public static int arrival_customs = 0;
+
 }

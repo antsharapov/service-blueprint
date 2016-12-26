@@ -42,7 +42,7 @@ public class ResultActivity extends Activity {
                                                OutputStreamWriter request = null;
                                                URL url = null;
                                                            String response = null;
-                                               String parameters = "name="+GlobalVariables.comments_type+"&mail="+GlobalVariables.comments;
+                                               String parameters = "name="+GlobalVariables.comments_type+"&mail="+GlobalVariables.comments+"&rating="+GlobalVariables.arrival_transport+GlobalVariables.arrival_cleanliness+GlobalVariables.arrival_navi_ease+GlobalVariables.arrival_fids+GlobalVariables.arrival_sound+GlobalVariables.arrival_bordercontrol+GlobalVariables.arrival_baggage_waittime+GlobalVariables.arrival_customs;
 
                                                    url = new URL("http://sd-glpi.basel.aero.local/phpmyadmin/and.php");
                                                    connection = (HttpURLConnection) url.openConnection();
@@ -132,6 +132,26 @@ public class ResultActivity extends Activity {
 
             writer.writeNext(new String[] {"\t"});
             writer.writeNext(GlobalVariables.results_array);
+            if (!GlobalVariables.arrival_airport.equals("")){
+                writer.writeNext(new String[] {"\t"});
+                writer.writeNext(new String[]{"Аэропорт прилёта: ", GlobalVariables.arrival_airport});
+                writer.writeNext(new String[] {"\t"});
+                writer.writeNext(new String[]{"Траспорт в/из аэропорта: ", String.valueOf(GlobalVariables.arrival_transport)});
+                writer.writeNext(new String[] {"\t"});
+                writer.writeNext(new String[]{"Чистота в терминале: ", String.valueOf(GlobalVariables.arrival_cleanliness)});
+                writer.writeNext(new String[] {"\t"});
+                writer.writeNext(new String[]{"Лёгкость нахождения нужного пути: ", String.valueOf(GlobalVariables.arrival_navi_ease)});
+                writer.writeNext(new String[] {"\t"});
+                writer.writeNext(new String[]{"Информационные экраны: ", String.valueOf(GlobalVariables.arrival_fids)});
+                writer.writeNext(new String[] {"\t"});
+                writer.writeNext(new String[]{"Звуковое оповещение: ", String.valueOf(GlobalVariables.arrival_sound)});
+                writer.writeNext(new String[] {"\t"});
+                writer.writeNext(new String[]{"Пограничный контроль: ", String.valueOf(GlobalVariables.arrival_bordercontrol)});
+                writer.writeNext(new String[] {"\t"});
+                writer.writeNext(new String[]{"Скорость выдачи багажа: ", String.valueOf(GlobalVariables.arrival_baggage_waittime)});
+                writer.writeNext(new String[] {"\t"});
+                writer.writeNext(new String[]{"Таможенный контроль: ", String.valueOf(GlobalVariables.arrival_customs)});
+            }
         }
         try {
             if (writer != null) {
@@ -147,6 +167,7 @@ public class ResultActivity extends Activity {
         tv.setText("Спасибо за использование\nнашего сервиса!");
 
     }
+
 
     public void BackButtonClick(View theButton)
     {

@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,12 +46,16 @@ public class WhoActivity extends Activity {
                         Intent intent = new Intent("com.google.zxing.client.android.SCAN");
                         intent.putExtra("SCAN_MODE", "SCAN_MODE");
                         startActivityForResult(intent, 0);
-                        Toast.makeText(WhoActivity.this, "Отсканируйте код агента", Toast.LENGTH_LONG).show();
+                        Toast toast = Toast.makeText(WhoActivity.this, "Отсканируйте код агента", Toast.LENGTH_LONG);
+                        toast.setGravity(Gravity.CENTER,0,0);
+                        toast.show();
                     } catch (Exception e) {
                         Uri marketUri = Uri.parse("market://details?id=com.google.zxing.client.android");
                         Intent marketIntent = new Intent(Intent.ACTION_VIEW,marketUri);
                         startActivity(marketIntent);
-                        Toast.makeText(WhoActivity.this, "Установите QR-сканер", Toast.LENGTH_LONG).show();
+                        Toast toast = Toast.makeText(WhoActivity.this, "Установите QR-сканер", Toast.LENGTH_LONG);
+                        toast.setGravity(Gravity.CENTER,0,0);
+                        toast.show();
                     }
                 } else {
                     Toast.makeText(getApplicationContext(), R.string.empty_fields, Toast.LENGTH_LONG).show();

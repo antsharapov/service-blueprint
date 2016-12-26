@@ -42,9 +42,14 @@ public class ResultActivity extends Activity {
                                                OutputStreamWriter request = null;
                                                URL url = null;
                                                            String response = null;
-                                               String parameters = "name="+GlobalVariables.comments_type+"&mail="+GlobalVariables.comments+"&rating="+GlobalVariables.arrival_transport+GlobalVariables.arrival_cleanliness+GlobalVariables.arrival_navi_ease+GlobalVariables.arrival_fids+GlobalVariables.arrival_sound+GlobalVariables.arrival_bordercontrol+GlobalVariables.arrival_baggage_waittime+GlobalVariables.arrival_customs;
+                                               String parameters = "airport="+GlobalVariables.airport;
+                                                           parameters+=("&service="+GlobalVariables.service);
+                                                           parameters+=("&person_name="+GlobalVariables.person_name);
+                                                           parameters+=("&person_flight="+GlobalVariables.person_flight);
+                                                           parameters+=("&person_flight_date="+GlobalVariables.person_flight_date);
+                                                           parameters+=("&agent_name="+GlobalVariables.agent_name);
 
-                                                   url = new URL("http://sd-glpi.basel.aero.local/phpmyadmin/and.php");
+                                                   url = new URL("http://sglpi001.aaq.basel.aero.local/android/test.php");
                                                    connection = (HttpURLConnection) url.openConnection();
                                                    connection.setDoOutput(true);
                                                    connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
